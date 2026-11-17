@@ -1,0 +1,22 @@
+﻿/// <reference path="../entries/main">
+// UI Element sizes
+$ui-icon-thickness: 2px; // for pseudoelement arrows, close buttons, etc
+$focus-weight: 2px; // doubled for outer focus ring
+$border-radius: 4px; // buttons and form elements
+$border-radius-lg: 6px; // cards, headers, alerts
+$border-radius-round: 9999em;
+$ui-icon-size: 1.25rem;
+$ui-icon-size-lg: 1.5rem;
+$svg-icon-xs: 0.5em;
+$svg-icon-sm: 1em;
+$svg-icon-md: 1.25em;
+$button-form-padding-h: 1rem;
+$button-form-padding-v: 0.75rem;
+$button-form-padding: $button-form-padding-v $button-form-padding-h;
+$button-form-border: 2px;
+
+// Sizing is equal to height of buttons/form inputs
+$square-button-size: calc(#{(1rem * $body-line-height) + ($button-form-padding-v * 2)} + #{$button-form-border * 2});
+
+// Offset from left when something needs to align with radio/checkbox content
+$radiocheck-offset: $radiocheck-size + $radiocheck-padding;

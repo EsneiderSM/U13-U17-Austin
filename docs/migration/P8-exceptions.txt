@@ -1,0 +1,5 @@
+P8 exception capture (temporary MVC result filter, now removed).
+Only exception found during P8, on the first full crawl (fixed in Views/Partials/widgets/Grid/ColumnPod.cshtml):
+  /adage-test-page/component-library-kara/  System.NullReferenceException in PublishedContentExtensions.Url
+  at Views/Partials/widgets/Grid/ColumnPod.cshtml:line 11 (content.Image.Url() with no image picked).
+After the fix: 0 exceptions across all 84 published pages that have a template and the extra paths in P8-pages.tsv.

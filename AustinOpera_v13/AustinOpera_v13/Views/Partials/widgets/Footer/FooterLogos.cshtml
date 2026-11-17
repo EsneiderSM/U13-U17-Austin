@@ -1,0 +1,43 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using AustinOpera_v13.Helpers;
+@{
+    var content = (ContentModels.FooterLogos)Model.Content;
+    var settings = (ContentModels.FooterLogosSettings)Model.Settings;
+    var contentSite = Context.Request.Scheme + "://" + Context.Request.Host;
+}
+
+<div class="footer-item footer-item--logos text-@(settings.AlignContent)">
+
+    @if (content.Heading != "")
+    {
+        <h2 class="h6">@content.Heading</h2>
+    }
+
+    @if (content.Logos != null && content.Logos.Any())
+    {
+        <ul>
+            @foreach (var logoBlock in content.Logos)
+            {
+                var logo = (ContentModels.Logo)logoBlock.Content;
+                var imageAltText = AdageHtmlHelper.GetAltText(logo.LogoImage, logo.LogoImage.Name);
+                if (logo.LogoImage != null)
+                {
+                    <li style="width: @(logo.CustomWidth == "" ? "120px" : logo.CustomWidth)">
+                        @if (logo.Link?.Url != null)
+                        {
+                            <a href="@(AdageHtmlHelper.GetAbsoluteUrl(logo.Link, contentSite))" target="@(logo.Link.Target)" title="@(logo.Link.Name)">
+                                <img src="@contentSite@logo.LogoImage.Url()" alt="@imageAltText">
+                            </a>
+                        }
+                        else
+                        {
+                            <div><img src="@contentSite@logo.LogoImage.Url()" alt="@imageAltText"></div>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    }
+
+</div>

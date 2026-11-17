@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RuntimeIdentifiers>linux-x64;win-x64</RuntimeIdentifiers>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wwwroot\Static\css\**" />
+    <Compile Remove="wwwroot\Static\img\**" />
+    <EmbeddedResource Remove="wwwroot\Static\css\**" />
+    <EmbeddedResource Remove="wwwroot\Static\img\**" />
+    <None Remove="wwwroot\Static\css\**" />
+    <None Remove="wwwroot\Static\img\**" />
+    <Folder Include="wwwroot\Static\dist\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Skybrud.Umbraco.Redirects" Version="17.0.5" />
+    <PackageReference Include="Umbraco.Cms" Version="17.8.1" />
+    <!-- Referenced directly since P4 (was transitive through the removed theme package). -->
+    <PackageReference Include="Umbraco.Forms" Version="17.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- App-local ICU (Microsoft.ICU.ICU4C.Runtime) removed in P6: Windows and App Service provide ICU.
+         If the site is ever hosted in a minimal Linux container, install libicu in the image. -->
+    <PackageReference Include="Umbraco.StorageProviders.AzureBlob" Version="17.1.0" />
+    <PackageReference Include="Umbraco.StorageProviders.AzureBlob.ImageSharp" Version="17.1.0" />
+    <PackageReference Include="uSync" Version="17.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Static\dist\" />
+    <Folder Include="wwwroot\Static\img\" />
+  </ItemGroup>
+
+
+  <PropertyGroup>
+    <!-- Razor files are needed for the backoffice to work correctly -->
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- P8: Umbraco 17 has no runtime Razor compilation, so views are compiled at build/publish. -->
+    <RazorCompileOnBuild>true</RazorCompileOnBuild>
+    <RazorCompileOnPublish>true</RazorCompileOnPublish>
+  </PropertyGroup>
+
+</Project>

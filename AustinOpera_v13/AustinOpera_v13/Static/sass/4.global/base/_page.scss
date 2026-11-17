@@ -1,0 +1,11 @@
+﻿/// <reference path="../../entries/main">
+
+body:has(.grecaptcha-badge) {
+    .grecaptcha-badge {
+        z-index: 100;
+    }
+
+    .to-top {
+        right: 85px;//Moves the back to top button to the left of the reCAPTCHA badge
+    }
+}

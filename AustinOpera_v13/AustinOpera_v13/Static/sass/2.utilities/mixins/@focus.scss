@@ -1,0 +1,35 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin generate-focus-box-shadow($_inner-color: $white, $_outer-color: $default-focus-ring, $_weight: 'medium') {
+    $_base-weight: $focus-weight;
+
+    @if $_weight == 'small' {
+        $_base-weight: 1px;
+    }
+
+    box-shadow: var(--theme-contrast, #{$_inner-color}) 0 0 0 ($_base-weight * 2), var(--background-dark-lighter, #{$_outer-color}) 0 0 0 ($_base-weight * 3);
+
+    @include dark-theme {
+        box-shadow: var(--background-dark, #{$_inner-color}) 0 0 0 ($_base-weight * 2), var(--background-light, #{$_outer-color}) 0 0 0 ($_base-weight * 3);
+    }
+}
+
+@mixin focused() {
+    @include generate-focus-box-shadow();
+}
+
+@mixin focus() {
+    outline: none;
+    transition: $transition all;
+
+    &:focus {
+        @include focused;
+    }
+}
+
+@mixin round-focus() {
+    &:focus {
+        @include generate-focus-box-shadow();
+        outline-color: transparent;
+    }
+}

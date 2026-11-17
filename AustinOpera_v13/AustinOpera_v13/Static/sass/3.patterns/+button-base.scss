@@ -1,0 +1,93 @@
+/// <reference path="../entries/main">
+
+%btn {
+    @extend %accent;
+    @include font-size($small-font-sizes);
+    display: inline-block;
+    padding: $button-form-padding;
+    padding: var(--button-form-padding);
+    text-decoration: none;
+    border-radius: $space / 2;
+    cursor: pointer;
+    text-align: center;
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+
+    .svg-icon {
+        margin-left: $space;
+    }
+}
+
+%btn-primary {
+    @extend %btn;
+    @include button-helper();
+}
+
+%btn-link {
+    @extend %btn;
+}
+
+%btn-secondary {
+    @extend %btn;
+    @include button-helper($default-button-secondary-config);
+}
+
+%btn-remove {
+    @extend %btn;
+    @include button-helper(map-merge($default-button-config, (
+            off: ($red-light, $red),
+            on: ($red, $white),
+            focus: ($white, $red, outline)
+        )));
+
+    @include media(small) {
+        @include round-focus;
+        border-radius: 9999em;
+        width: $square-button-size;
+        width: var(--square-button-size);
+        height: $square-button-size;
+        height: var(--square-button-size);
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            @include visually-hidden;
+        }
+
+        .svg-icon {
+            margin: 0;
+        }
+    }
+}
+
+%un-button-un-style {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: inline;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
+        background-color: transparent;
+        color: $gray-dark;
+        cursor: not-allowed;
+    }
+}
+
+%un-button {
+    @extend %body;
+    @extend %un-button-un-style;
+}
+

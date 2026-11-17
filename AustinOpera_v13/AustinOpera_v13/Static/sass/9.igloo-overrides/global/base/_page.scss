@@ -1,0 +1,73 @@
+/// <reference path="../../../entries/main">
+
+html {
+    scroll-padding-top: var(--top-combo-calc);
+    font-size: 100%;
+}
+
+.top .top-inner {
+    padding-top: $space;
+    padding-bottom: $space;
+
+    .logo {
+        max-width: 200px;
+        padding-top: 0;
+    }
+}
+
+.pre-top {
+    border: none;
+    box-shadow: none;
+    padding-top: $space;
+    font-size: var(--font-size-small);
+
+    &-visible {
+        .search {
+            top: calc(var(--header-height) + var(--pre-top-height));
+
+            @include media(medium) {
+                top: calc(var(--header-height));
+            }
+        }
+
+        .scroll .search {
+            top: calc(var(--header-height));
+        }
+    }
+
+    .pre-top__list {
+        font-weight: $font-weight-bold;
+    }
+}
+
+.block {
+    &-compact {
+        padding: $gap 0 0;
+        position: relative;
+    }
+}
+
+body:has(.grecaptcha-badge) {
+    .grecaptcha-badge {
+        z-index: 100;
+    }
+
+    .to-top {
+        right: 85px; //Moves the back to top button to the left of the reCAPTCHA badge
+    }
+}
+
+.footer-social-translate {
+
+    select {
+        max-width: 15rem;
+        height: 1.75rem;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    label {
+        @extend %visually-hidden;
+    }
+}

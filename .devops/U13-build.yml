@@ -1,0 +1,110 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - master
+      - stage
+      - dev
+  paths:
+    exclude:
+      - .devops
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - name: NUGET_PLUGIN_HANDSHAKE_TIMEOUT_IN_SECONDS
+    value: 60
+  - name: NUGET_PLUGIN_REQUEST_TIMEOUT_IN_SECONDS
+    value: 60
+  - name: branchName
+    value: $[ replace(variables['Build.SourceBranch'], 'refs/heads/', '') ]
+  - name: packageSuffix
+    value: $[ replace(variables['branchName'], '/', '-') ]
+  - name: packageIdBranch
+    value: AO.U13-$(packageSuffix)
+  - name: projectPath
+    value: AustinOpera_v13/AustinOpera_v13
+  - name: buildConfiguration
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      value: Release
+    ${{ else }}:
+      value: Debug
+
+steps:
+- checkout: self
+
+- script: |
+    echo Source branch: $(Build.SourceBranch)
+    echo Branch name: $(branchName)
+    echo Package suffix: $(packageSuffix)
+    echo Package ID: $(packageIdBranch)
+    echo Project path: $(projectPath)
+    echo Build config: $(buildConfiguration)
+  displayName: 'Show resolved variables'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore packages'
+  inputs:
+    command: 'restore'
+    projects: '$(projectPath)/*.csproj'
+    feedsToUse: 'config'
+    nugetConfigPath: 'nuget.config'
+    externalFeedCredentials: 'AdagetechCS-AustinOpera'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build project'
+  inputs:
+    command: 'build'
+    projects: '$(projectPath)/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- task: UseNode@1
+  displayName: 'Select Node version'
+  inputs:
+    version: '16.13.0'
+
+- task: Npm@1
+  displayName: 'Run NPM install'
+  inputs:
+    command: 'install'
+    workingDir: '$(projectPath)'
+
+- task: Npm@1
+  displayName: 'Run NPM run build'
+  inputs:
+    command: 'custom'
+    workingDir: '$(projectPath)'
+    customCommand: 'run build'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish project'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(projectPath)/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory) --no-restore --runtime win-x64 --no-self-contained'
+    zipAfterPublish: false
+    modifyOutputPath: false
+
+- task: OctopusPackNuGet@7
+  displayName: 'Create package for Octopus'
+  inputs:
+    PackageId: '$(packageIdBranch)'
+    PackageVersion: '$(Build.BuildNumber)'
+    SourcePath: '$(Build.ArtifactStagingDirectory)'
+    NuGetDescription: '$(packageIdBranch)'
+    NuGetAuthors: 'Adage Technologies'
+
+- task: OctopusPush@7
+  displayName: 'Push package to Octopus'
+  inputs:
+    OctoConnectedServiceName: 'Adage Octopus Server-AustinOpera'
+    Space: 'Default'
+    Packages: '$(packageIdBranch).$(Build.BuildNumber).*'
+    Replace: 'true'

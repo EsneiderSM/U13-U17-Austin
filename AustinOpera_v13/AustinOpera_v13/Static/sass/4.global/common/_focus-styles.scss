@@ -1,0 +1,42 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin focused() {
+    @include generate-focus-box-shadow();
+}
+
+@mixin focus() {
+    outline: none;
+    transition: $transition all;
+
+    &:focus {
+        @include focused;
+    }
+}
+
+@mixin round-focus() {
+    &:focus {
+        @include generate-focus-box-shadow();
+        outline-color: transparent;
+    }
+}
+
+%focus {
+    @include focus;
+}
+
+a,
+area,
+input,
+select,
+textarea,
+button {
+    @include focus();
+}
+
+// This override gives a subtler focus ring for buttons. Only keep this override if your button focus states are very clear.
+%btn {
+    &:focus {
+        @include generate-focus-box-shadow($default-focus-ring, $_weight: 'small');
+        outline-color: transparent;
+    }
+}

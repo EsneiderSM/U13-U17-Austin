@@ -1,0 +1,38 @@
+// Spacing variables
+$gap-lg:                    5rem;
+$gap:                       2rem;
+$gap-md:                    1.5rem;
+$gap-sm:                    1rem;
+$space:                     0.5rem;
+$sliver:                    0.25rem;
+
+// Layout sizing and sizing for ui elements included in layouts
+$max-page-margin:           5rem;
+$max-line-length:           50rem;
+$max-input-width:           30rem;
+$min-input-width:           300px;
+$min-input-width-sm:        150px;
+$max-gutter-width:          2.25rem;
+$max-gutter-height:         1.5rem;
+$max-width:                 90rem;
+$max-content-width: $max-width - ($max-page-margin * 2);
+$max-width-narrow:          42rem;
+$max-modal-height:          38rem;
+$max-modal-width:           24rem;
+$max-input-list-height:     22rem;
+$button-width:              8rem;
+$radiocheck-size:           1.125rem;
+$radiocheck-padding:        $gap-sm;
+$radiocheck-weight:         3px;
+
+// Calendar structure variables
+$filter-height:             6rem !default;
+$filter-height-mobile:      5rem !default;
+$weekdays-height:           2.75rem !default;
+$loader-size:               5rem;
+$loader-weight:             2; //multiplier scale, not direct pixel weight
+
+// Miscellaneous
+$prefix:                    'ace-'; //prefix for project-specific classes
+$transition:                0.2s;
+$one-third:                 99.9% / 3;

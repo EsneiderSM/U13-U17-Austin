@@ -1,0 +1,59 @@
+/// <reference path="../../../entries/main">
+
+.section-nav {
+    background-color: var(--bg-color, #{$white});
+
+    ul {
+        justify-content: flex-start;
+
+        a {
+            font-family: var(--heading-font);
+            font-size: var(--font-size-big);
+            font-weight: $font-weight-normal;
+            min-height: 0;
+            border: 0;
+            padding-inline: $gap-md;
+            color: $black;
+
+            @include media(medium) {
+                padding-inline: $gap-sm;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: var(--border-dark);
+            }
+        }
+
+        li {
+            flex: 0 0 auto;
+
+            &:first-child {
+                margin-left: auto;
+            }
+
+            &:last-child {
+                margin-right: auto;
+            }
+
+            &:first-child a {
+                border: 0;
+            }
+        }
+    }
+
+    &.light-color ul a {
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: var(--border-light);
+        }
+    }
+
+    &.sticky {
+        position: sticky;
+        top: var(--header-height);
+        z-index: 499;
+    }
+}

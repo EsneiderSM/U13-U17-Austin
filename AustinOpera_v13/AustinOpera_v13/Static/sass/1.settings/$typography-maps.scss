@@ -1,0 +1,65 @@
+﻿/// <reference path="../entries/main">
+//Font sizing is handled in Igloo. The only font heading we've customize is the h6 and label text.
+$typography-breakpoints: (
+    default,
+    small
+);
+
+/// parameters: size, line-height, letter-spacing (optional)
+$x-large-font-sizes: ( //h1
+    name: x-large-text,
+    default : (4rem, $heading-line-height),
+    small : (3.5rem)
+);
+
+$large-font-sizes: ( //h2
+    name: large-text,
+    default : (3rem, $heading-line-height),
+    small : (2.5rem)
+);
+
+$medium-large-font-sizes: ( //h3
+    name: medium-large-text,
+    default : (2rem, $heading-line-height),
+    small : (1.75rem)
+);
+
+$medium-font-sizes: ( //h4 + body large
+    name: medium-text,
+    default : (1.325rem, $body-line-height),
+    small : (1.25rem)
+);
+
+$large-reg-font-sizes: (
+    name: large-regular-text,
+    default: (1.25rem, $body-line-height),
+    small: (1.125rem)
+);
+
+$reg-font-sizes: (  //h5 + body regular
+    name: regular-text,
+    default : (1.125rem, $body-line-height),
+    small : (1rem)
+);
+
+$small-font-sizes: ( //h6 + body caption
+    name: small-text,
+    default : (1.25rem, $body-line-height),
+    small : (0.875rem)
+);
+
+$label-font-sizes: ( //label / accent font sizes. Should not go below 16px.
+    name: label-text,
+    default : (1.625rem, $body-line-height)
+);
+
+$_all-font-size-maps: (
+    $x-large-font-sizes,
+    $large-font-sizes,
+    $medium-large-font-sizes,
+    $medium-font-sizes,
+    $large-reg-font-sizes,
+    $reg-font-sizes,
+    $small-font-sizes,
+    $label-font-sizes
+);

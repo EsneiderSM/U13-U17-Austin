@@ -1,0 +1,70 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin button-helper($_config: $default-button-config) {
+    $_off: map-get($_config, off);
+    $_on: map-get($_config, on);
+    $_focus: map-get($_config, focus);
+    $_disabled: map-get($_config, disabled);
+
+    background-color: nth($_off, 1);
+    color: nth($_off, 2);
+
+    @if length($_off) > 2 and nth($_off, 3) == outline {
+        border: $button-form-border solid nth($_off, 2);
+    }
+
+    @else {
+        border: $button-form-border solid transparent;
+    }
+
+    svg {
+        fill: nth($_off, 2);
+    }
+
+    &:hover,
+    &:active {
+        background-color: nth($_on, 1);
+        color: nth($_on, 2);
+
+        svg {
+            fill: nth($_on, 2);
+        }
+
+        @if length($_on) > 2 and nth($_on, 3) == outline {
+            border-color: nth($_on, 2);
+        }
+    }
+
+    &:focus {
+        background-color: nth($_focus, 1);
+        color: nth($_focus, 2);
+
+        svg {
+            fill: nth($_focus, 2);
+        }
+
+        @if length($_focus) > 2 and nth($_focus, 3) == outline {
+            border-color: nth($_focus, 2);
+        }
+    }
+
+    &[disabled] {
+        background-color: nth($_disabled, 1);
+        color: nth($_disabled, 2);
+        box-shadow: none;
+
+        svg {
+            fill: nth($_disabled, 2);
+        }
+
+        &:hover {
+            background-color: nth($_disabled, 1);
+            color: nth($_disabled, 2);
+            cursor: not-allowed;
+        }
+
+        @if length($_disabled) > 2 and nth($_disabled, 3) == outline {
+            border-color: nth($_disabled, 2);
+        }
+    }
+}

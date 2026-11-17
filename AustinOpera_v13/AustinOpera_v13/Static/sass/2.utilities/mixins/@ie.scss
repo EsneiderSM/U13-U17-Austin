@@ -1,0 +1,20 @@
+/// <reference path="../../entries/main">
+
+@mixin ie-edge {
+    @at-root {
+        :-ms-lang(x), & {
+            @content;
+        }
+    }
+}
+
+//Just IE, not Edge
+@mixin ie {
+    @at-root {
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            & {
+                @content;
+            }
+        }
+    }
+}

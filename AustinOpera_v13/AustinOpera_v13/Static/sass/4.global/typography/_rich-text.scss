@@ -1,0 +1,39 @@
+﻿/// <reference path="../../entries/main">
+
+.rich-text {
+    max-width: $max-line-length;
+
+    * + * {
+        @extend %text-top-margin;
+    }
+
+    * + li {
+        @extend %small-top-margin;
+    }
+
+    %h6 + * {
+        @extend %medium-top-margin;
+    }
+
+    .preheader + * {
+        @extend %small-top-margin;
+    }
+
+    ul,
+    ol {
+        padding-left: calc(0.66em + 6px);
+
+        &.no-bullets {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
+
+    ol {
+        list-style-type: decimal;
+    }
+
+    ul {
+        list-style-type: disc;
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "../../umbraco-package-schema.json",
+  "id": "AustinOpera.Backoffice",
+  "name": "Austin Opera backoffice",
+  "version": "1.0.0",
+  "allowTelemetry": false,
+  "extensions": [
+    {
+      "type": "tiptapToolbarExtension",
+      "kind": "styleMenu",
+      "alias": "AustinOpera.Tiptap.Toolbar.StyleSelect",
+      "name": "Austin Opera Tiptap style menu (from /css/rte-formats.css)",
+      "meta": {
+        "alias": "austinOperaStyleSelect",
+        "icon": "icon-palette",
+        "label": "Styles"
+      },
+      "items": [
+        {
+          "label": "Headings",
+          "items": [
+            { "label": "h1", "data": { "tag": "h1" } },
+            { "label": "h2", "data": { "tag": "h2" } },
+            { "label": "h3", "data": { "tag": "h3" } },
+            { "label": "h4", "data": { "tag": "h4" } },
+            { "label": "h5", "data": { "tag": "h5" } },
+            { "label": "h6", "data": { "tag": "h6" } }
+          ]
+        },
+        { "label": "Pre Header", "data": { "tag": "h6", "class": "pre-head" } },
+        { "label": "Text", "data": { "tag": "p" } },
+        { "label": "Text Big", "data": { "class": "text-big" } },
+        { "label": "Text Small", "data": { "class": "text-small" } },
+        { "label": "Quote", "data": { "tag": "blockquote" } },
+        { "label": "Image Left", "data": { "class": "image-left" } },
+        { "label": "Image Right", "data": { "class": "image-right" } }
+      ]
+    }
+  ]
+}

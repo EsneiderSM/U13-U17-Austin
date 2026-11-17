@@ -1,0 +1,62 @@
+/// <reference path="../../../entries/main">
+
+:root {
+    --hero-vertical-padding: 80px;
+
+    @include media(medium) {
+        --hero-vertical-padding: 60px;
+    }
+}
+
+.hero .hero__inner h1 {
+    font-size: var(--hero-heading);
+    line-height: 1.1;
+}
+
+.hero {
+    &__wrapper {
+        width: 100%;
+        aspect-ratio: 271/95;
+        padding-block: var(--hero-vertical-padding);
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    & &__background {
+        background-position: var(--h, center) var(--v, center);
+    }
+}
+
+// direct igloo overrides
+.top + #content > .hero:nth-child(n) {
+    padding: 0;
+
+    @include media-min(medium) {
+        padding-bottom: 0;
+    }
+
+    &:first-child {
+        padding-top: var(--header-height);
+    }
+
+    .hero__background {
+        top: 0;
+    }
+}
+
+.pre-top + .top + #content > .hero:nth-child(n) {
+    padding: 0;
+
+    @include media-min(medium) {
+        padding-bottom: 0;
+    }
+
+    &:first-child {
+        padding-top: calc(var(--header-height) + var(--pre-top-height));
+    }
+
+    .hero__background {
+        top: 0;
+    }
+}

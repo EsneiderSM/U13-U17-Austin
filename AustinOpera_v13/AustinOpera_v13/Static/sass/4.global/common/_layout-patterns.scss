@@ -1,0 +1,101 @@
+﻿/// <reference path="../../entries/main">
+
+.#{$prefix}layout {
+    display: flex;
+    flex-direction: column;
+    //Lighter weight responsive gutters, IE will just use default/max
+    margin-right: -$max-gutter-width;
+    margin-bottom: -1 * $max-gutter-height;
+    margin-right: calc(var(--gutter-h) * -1);
+    margin-bottom: calc(var(--gutter-v) * -1);
+
+    & > * {
+        flex: 0 1 auto;
+        margin-right: $max-gutter-width;
+        margin-bottom: $max-gutter-height;
+        margin-right: var(--gutter-h);
+        margin-bottom: var(--gutter-v);
+    }
+
+    &-align-center {
+        @include media-min(medium) {
+            align-items: center;
+        }
+    }
+
+    &-justify-center {
+        @include media-min(medium) {
+            justify-content: center;
+        }
+    }
+}
+
+// Variants based on number of items across
+.#{$prefix}layout {
+    &.reverse-mobile {
+        @include media(small) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    @include media-min(small) {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &-2-eq,
+        &-4-eq {
+            & > * {
+                width: calc(50% - #{$max-gutter-width});
+                width: calc(50% - var(--gutter-h));
+            }
+        }
+    }
+
+    &-3-eq {
+        @include media(tablet) {
+            flex-direction: column;
+        }
+
+        @include media-min(tablet) {
+            & > * {
+                width: calc(#{$one-third} - #{$max-gutter-width});
+                width: calc(#{$one-third} - var(--gutter-h));
+            }
+        }
+    }
+
+    @include media-min(medium) {
+        &-4-eq {
+            & > * {
+                width: calc(25% - #{$max-gutter-width});
+                width: calc(25% - var(--gutter-h));
+            }
+        }
+    }
+}
+
+// Variants with layouts other than equal
+.#{$prefix}layout {
+    &-8-4,
+    &-4-8 {
+        @include media($medium-media-query-size - 1px) {
+            flex-direction: column;
+        }
+    }
+
+    @include media-min(medium) {
+        &-8-4 > *:nth-child(odd),
+        &-4-8 > *:nth-child(even) {
+            // 8
+            width: calc(#{$one-third * 2} - #{$max-gutter-width});
+            width: calc(#{$one-third * 2} - var(--gutter-h));
+        }
+
+        &-4-8 > *:nth-child(odd),
+        &-8-4 > *:nth-child(even) {
+            // 4
+            width: calc(#{$one-third} - #{$max-gutter-width});
+            width: calc(#{$one-third} - var(--gutter-h));
+        }
+    }
+}

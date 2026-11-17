@@ -1,0 +1,11 @@
+﻿/// <reference path="../../entries/main">
+
+.two-col {
+    &-container {
+        @extend %simple-2-col-container;
+    }
+
+    &-item {
+        @extend %simple-2-col-item;
+    }
+}

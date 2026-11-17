@@ -1,0 +1,233 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject ISiteSettingsService _settingsService;
+@using AustinOpera_v13.Extensions;
+@using System;
+@using System.Text;
+@using Umbraco.Forms.Web
+
+@{
+    Layout = null;
+
+    var googleAnalyticsId = _settingsService.Get<string>(Model, "googleAnalyticsID");
+    var googleTagManagerID = _settingsService.Get<string>(Model, "googleTagManagerID");
+    var hotjarID = _settingsService.Get<string>(Model, "hotjarID");
+    var headTrackingScripts = _settingsService.Get<string>(Model, "headTrackingScripts");
+    var bodyTrackingScripts = _settingsService.Get<string>(Model, "bodyTrackingScripts");
+    var contentSite = Context.Request.Scheme + "://" + Context.Request.Host;
+
+    var enableCookieConsentDialog = _settingsService.Get<bool>(Model, "enableCookieConsentDialog");
+    var embedFont = _settingsService.Get<string>(Model, "embedFont");
+
+    var settingsLogoUrl = _settingsService.Get<IPublishedContent>(Model, "companyLogo")?.Url();
+    var settingsPhoneNumber = _settingsService.Get<string>(Model, "companyPhoneNumber");
+    var settingsCompanyName = _settingsService.Get<string>(Model, "companyName");
+
+    var hideHeader = Model.Value<bool>("hideHeader");
+    var hideFooter = Model.Value<bool>("hideFooter");
+    var site = Model.Root();
+    var lang = System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+    var search = site.FirstChild<Search>();
+    var enableSubHeader = site.Value<bool>("enableSubHeader");
+
+    var showThemeExplorer = _settingsService.Get<bool?>(Model, "showThemeExplorer") ?? false;
+}
+
+<!DOCTYPE html>
+<html lang="@lang">
+<head>
+    <link rel="preload" href="@contentSite/ig-assets/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" type="font/woff2" crossorigin>
+
+    @Html.Raw(embedFont)
+
+    @*former Smidge bundle "igloo-css-bundle" (see docs/migration/P6-smidge-bundles.md), same files in the same order; P10: cache busting via asp-append-version*@
+    <link href="~/css/lib/reset.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/ig-theme.defaults.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/lib/font-awesome.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/lib/photoswipe.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/ig-base.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/ig-header.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/ig-footer.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/ig-widgets.css" asp-append-version="true" rel="stylesheet">
+    <link href="~/css/custom.css" asp-append-version="true" rel="stylesheet">
+
+    @*generated theme CSS stays a separate link, not part of the build*@
+    <link href="@contentSite@Model.GetThemePath()" rel="stylesheet" type="text/css" />
+    <link href="~/Static/dist/main.css" asp-append-version="true" rel="stylesheet" />
+    @if (Model.GetTemplateAlias() == "TnewTemplatePage")
+    {
+        <link href="~/Static/dist/tnew.css" asp-append-version="true" rel="stylesheet" />
+    }
+    @await Html.PartialAsync("~/Views/Partials/Shared/Meta.cshtml")
+    @if (!string.IsNullOrEmpty(googleTagManagerID))
+    {
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','@googleTagManagerID');
+        </script>
+    }
+
+    @if (!string.IsNullOrEmpty(hotjarID))
+    {
+        <script>
+            (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:@(hotjarID),hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+    }
+
+    @if (!string.IsNullOrEmpty(headTrackingScripts))
+    {
+        @Html.Raw(headTrackingScripts)
+    }
+    <script>window.MSInputMethodContext && document.documentMode && document.write('<script src="/scripts/lib/ie11CustomProperties.js"><\x2fscript>');</script>
+    @Html.RenderUmbracoFormDependencies(Url)
+</head>
+<body class="page-loading @(enableSubHeader ? "pre-top-visible" : "")" data-siteid="@site.Id" data-culture="@System.Threading.Thread.CurrentThread.CurrentCulture.Name">
+    <a href="#content" class="button skip-link">@Umbraco.GetDictionaryValue("Jump to content")</a>
+
+    <div class="io-hook"></div>
+
+    @if (!hideHeader)
+    {
+        if (enableSubHeader)
+        {
+            @await Html.PartialAsync("~/Views/Partials/Shared/SubHeader.cshtml")
+        }
+        @await Html.PartialAsync("~/Views/Partials/Shared/Header.cshtml")
+    }
+
+    <main id="content">
+        @RenderBody()
+    </main>
+
+    @if (!hideFooter)
+    {
+        @await Html.PartialAsync("~/Views/Partials/Shared/Footer.cshtml", site)
+    }
+
+    @if (search != null)
+    {
+        @await Html.PartialAsync("~/Views/Partials/Shared/SearchModal.cshtml")
+    }
+
+    @if (enableCookieConsentDialog)
+    {
+        @await Html.PartialAsync("~/Views/Partials/Shared/CookieConsent.cshtml")
+    }
+
+    @await Html.PartialAsync("~/Views/Partials/Shared/PhotoSwipe.cshtml")
+
+    @if (googleAnalyticsId != "")
+    {
+        <script async src="https://www.googletagmanager.com/gtag/js?id=@googleAnalyticsId"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '@googleAnalyticsId');
+        </script>
+    }
+
+    <script type="application/ld+json">
+        {
+        "@@context": "http://schema.org",
+        "@@type": "Organization",
+        "url": "@site.Url(mode: UrlMode.Absolute)"
+        @if (settingsCompanyName != "")
+        {
+            <text>,"name": "@settingsCompanyName"</text>
+        }
+        @if (settingsLogoUrl != null)
+        {
+            <text>,"logo": "@settingsLogoUrl"</text>
+        }
+
+        @if (settingsPhoneNumber != "")
+        {
+            <text>,"telephone":"@settingsPhoneNumber"</text>
+        }
+        }
+    </script>
+
+
+    @if (googleTagManagerID != "")
+    {
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=@(googleTagManagerID)" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+    }
+
+    <!-- Google Translate Activation -->
+    <script>
+        function googleTranslateElementInit() {
+            function getCookie(name) {
+                var re = new RegExp(name + "=([^;]+)");
+                var value = re.exec(document.cookie);
+                return (value != null) ? unescape(value[1]) : null;
+            }
+
+            var cookieVal = getCookie('googtrans22') || '';
+
+            var ckDomain;
+            for (var ckDomain = window.location.hostname.split("."); 2 < ckDomain.length;) {
+                ckDomain.shift();
+            }
+            ckDomain = ";domain=" + ckDomain.join(".");
+
+            // domain cookie
+            document.cookie = `googtrans=${cookieVal}; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/${ckDomain}`;
+            // host-only cookie (with no domain name definition)
+            document.cookie = `googtrans=${cookieVal}; expires=Thu, 07-Mar-2047 20:22:40 GMT; path=/`;
+
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: 'en',
+                    autoDisplay: false,
+                },
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="~/Static/dist/global.js" asp-append-version="true"></script>
+
+
+    @if (showThemeExplorer || UmbracoContext.InPreviewMode)
+    {
+        @await Html.PartialAsync("~/Views/Partials/Shared/ThemeExplorer.cshtml")
+        <link rel="stylesheet" href="@contentSite/css/lib/theme-explorer.css">
+        <script src="@contentSite/scripts/lib/jscolor.js"></script>
+        <script src="@contentSite/scripts/lib/theme-explorer.js"></script>
+    }
+
+    @*former Smidge bundle "igloo-js-bundle" (see docs/migration/P6-smidge-bundles.md), same files in the same order; P10: cache busting via asp-append-version*@
+    <script src="~/scripts/lib/ls.respimg.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/ls.bgset.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/lazysizes.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/fluidvids.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/photoswipe.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/photoswipe-ui-default.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/flickity.pkgd.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/forms/promise-polyfill/polyfill.min.js" asp-append-version="true"></script>
+    @*the Forms 13-era aspnet-validation.min.js was removed here: Umbraco Forms 17 loads its own newer copy via RenderUmbracoFormDependencies, and the old one overwrote window.aspnetValidation (no validateForm)*@
+    <script src="~/scripts/lib/intersection-observer.js" asp-append-version="true"></script>
+    <script src="~/scripts/lib/axios.min.js" asp-append-version="true"></script>
+    <script src="~/scripts/ig-app.js" asp-append-version="true"></script>
+    <script src="~/scripts/custom.js" asp-append-version="true"></script>
+    @*tracking pixel script*@
+    @if (!string.IsNullOrEmpty(bodyTrackingScripts))
+    {
+        @Html.Raw(bodyTrackingScripts)
+    }
+
+    @RenderSection("bodyEnd", false)
+</body>
+</html>

@@ -1,0 +1,16 @@
+/// <reference path="../../entries/main">
+
+// This code controls visitor group functionality in the view
+
+.umb-custom-macro-property {
+    position: relative !important;
+    box-shadow: none !important;
+}
+
+.show-one-wysiwyg {
+    display: none;
+}
+
+.show-one-wysiwyg:first-of-type {
+    display: block;
+}

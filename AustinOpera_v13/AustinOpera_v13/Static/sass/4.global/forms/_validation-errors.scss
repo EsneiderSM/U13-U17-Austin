@@ -1,0 +1,103 @@
+﻿/// <reference path="../../entries/main">
+
+// Hide empty placeholders for errors
+.field-validation-valid:empty {
+    display: none;
+}
+
+.validation-summary-errors,
+.field-validation-error,
+.error-message {
+    a {
+        @include link-helper($red, $red-medium);
+
+        @include dark-theme() {
+            @include link-helper($white, $red-light);
+        }
+    }
+}
+
+.validation-summary {
+    &-errors {
+        @extend %card-padding-h;
+        color: $ui-invalid;
+        border-left: ($ui-icon-thickness * 2) solid $ui-invalid;
+
+        @include responsive-context($gutter-map-v) {
+            & + * {
+                margin-top: $responsive-variable;
+            }
+        }
+
+        .field-validation-error {
+            @extend %large;
+            background-image: none;
+            padding-left: 0;
+        }
+    }
+}
+
+.validation-summary-list,
+.#{$prefix}error-list {
+    @include stack($static-spacing: $space);
+    counter-reset: errors;
+    margin-top: $space;
+
+    @at-root {
+        &,
+        .rich-text & {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
+
+    li {
+        counter-increment: errors;
+        position: relative;
+
+        &::before {
+            // Using 3ch here to make sure that the width will always be larger than a 2-digit number,
+            // so the numbers can be right-aligned but still a predictable width
+            width: 3ch;
+
+            @extend %accent;
+            content: counter(errors) ". ";
+            text-align: right;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    a {
+        // Since the numbers are a predictable width, we can set the spacing based on number width.
+        // There IS a discrepancy because the ch unit is different between typography styles if the font family/size differ,
+        // but that will only matter if you need to align the spacing with other things on the page.
+        margin-left: calc(3ch + #{$space});
+        display: inline-block;
+
+        * {
+            display: inline;
+        }
+    }
+}
+
+.error-message,
+.field-validation-error {
+    @extend %small;
+    @extend %svg-bg-left;
+    @include icon-invalid($default-text);
+    color: $ui-invalid;
+    display: block;
+
+    @include dark-theme() {
+        @include icon-invalid($white);
+        background-color: $ui-invalid;
+        border: $space solid $ui-invalid;
+        border-radius: $border-radius;
+        color: $white;
+        box-shadow: $white 0 0 0 1px;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+}

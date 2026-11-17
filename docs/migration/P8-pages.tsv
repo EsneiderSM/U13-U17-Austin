@@ -1,0 +1,252 @@
+status	url	docType	templateId	name
+200	/	site	1333	Austin Opera Home
+200	/test-page/	page	1333	Test Page
+200	/test-page/austin-opera-sub-page/	page	1333	Austin Opera Sub Page
+-	/settings/	websiteSettings		Settings
+-	/settings/general/	general		General
+-	/settings/theme/	theme		Theme
+200	/feed-page-blog/	feed	1331	Feed Page (Blog)
+200	/feed-page-blog/p1/	post	1334	p1
+200	/adage-test-page/	page	1333	Adage Test Page
+200	/adage-test-page/component-library-kara/	page	1333	Component Library - Kara
+200	/adage-test-page/ui-content-page-kara/	page	1333	UI Content Page - Kara
+200	/tnewtemplatepage/	tnewTemplatePage	2540	TnewTemplatePage
+200	/shows-events/	page	1333	Shows & Events
+200	/shows-events/2025-2026-season/	page	1333	2025-2026 Season
+200	/shows-events/2025-2026-season/celebrate-opera/	page	1333	Celebrate Opera!
+200	/shows-events/2025-2026-season/fiddler-on-the-roof/	page	1333	Fiddler on the Roof
+200	/shows-events/2025-2026-season/carousel/	page	1333	Carousel
+200	/shows-events/2025-2026-season/la-boheme/	page	1333	La Bohème
+200	/shows-events/season-tickets/	page	1333	Season Tickets
+200	/shows-events/events/	page	1333	Events
+200	/shows-events/events/serenata/	page	1333	Serenata
+200	/shows-events/events/opera-on-the-greens/	page	1333	Opera on the Greens
+200	/shows-events/events/season-opening-celebration/	page	1333	Season Opening Celebration
+200	/shows-events/events/noche-de-opera/	page	1333	Noche de Ópera
+200	/shows-events/events/conductor-cues/	page	1333	Conductor Cues
+200	/shows-events/events/masterclass-series/	page	1333	Masterclass Series
+200	/shows-events/events/concerts-at-the-consulate/	page	1333	Concerts at the Consulate
+200	/shows-events/events/jeanette-nassour-pre-opera-dinner/	page	1333	Jeanette Nassour Pre-Opera Dinner
+200	/shows-events/ticket-info-offers/	page	1333	Ticket Info & Offers
+200	/shows-events/ticket-info-offers/groups-ticket-programs/	page	1333	Groups & Ticket Programs
+200	/shows-events/ticket-info-offers/mobile-tickets/	page	1333	Mobile Tickets
+200	/shows-events/ticket-info-offers/ticket-policies-faq/	page	1333	Ticket Policies & FAQ
+200	/shows-events/ticket-info-offers/ticket-donation-request-form/	page	1333	Ticket Donation Request Form
+200	/shows-events/friends-of-the-opera/	page	1333	Friends of the Opera
+200	/shows-events/gift-certificates/	page	1333	Gift Certificates
+200	/shows-events/2024-2025-season/	page	1333	2024-2025 Season
+200	/shows-events/2024-2025-season/madame-butterfly/	page	1333	Madame Butterfly
+200	/shows-events/2024-2025-season/madame-butterfly/women-of-meiji-japan/	page	1333	Women of Meiji Japan
+200	/shows-events/2024-2025-season/madame-butterfly/re-staging-butterfly/	page	1333	(re)Staging Butterfly
+200	/shows-events/2024-2025-season/the-manchurian-candidate/	page	1333	The Manchurian Candidate
+200	/shows-events/2024-2025-season/verdis-requiem/	page	1333	Verdi's Requiem
+200	/support-us/	page	1333	Support Us
+200	/support-us/ways-to-give/	page	1333	Ways to Give
+200	/support-us/inspire-2030/	page	1333	Inspire 2030
+200	/support-us/operatti-ambassadors/	page	1333	Operatti Ambassadors
+200	/support-us/corporate-giving/	page	1333	Corporate Giving
+200	/support-us/planned-giving/	page	1333	Planned Giving
+200	/support-us/premier-giving-travel-program/	page	1333	Premier Giving Travel Program
+200	/support-us/become-a-donor/	page	1333	Become a Donor
+200	/about/	page	1333	About
+200	/about/mission-vision-values/	page	1333	Mission, Vision, Values
+200	/about/join-austin-opera/	page	1333	Join Austin Opera
+200	/about/inclusion/	page	1333	Inclusion
+200	/about/inclusion/accessibility/	page	1333	Accessibility
+200	/about/staff-board/	page	1333	Staff & Board
+200	/about/staff-board/annie-burridge/	page	1333	Annie Burridge
+200	/about/staff-board/timothy-myers/	page	1333	Timothy Myers
+200	/about/staff-board/jennifer-basten/	page	1333	Jennifer Basten
+200	/about/resident-artists/	page	1333	Resident Artists
+200	/about/resident-artists/austin-opera-orchestra/	page	1333	Austin Opera Orchestra
+200	/about/resident-artists/austin-opera-chorus/	page	1333	Austin Opera Chorus
+200	/about/resident-artists/austin-opera-resident-stars/	page	1333	Austin Opera Resident Stars
+200	/about/resident-artists/chorus-audition-form/	page	1333	Chorus Audition Form
+200	/about/newsroom/	page	1333	Newsroom
+200	/about/past-seasons/	page	1333	Past Seasons
+200	/plan-your-visit/	page	1333	Plan Your Visit
+200	/plan-your-visit/our-venues/	page	1333	Our Venues
+200	/plan-your-visit/our-venues/the-long-center-for-the-performing-arts/	page	1333	The Long Center for the Performing Arts
+200	/plan-your-visit/our-venues/the-butler-performance-center-at-austin-opera/	page	1333	The Butler Performance Center at Austin Opera
+200	/plan-your-visit/know-before-you-go/	page	1333	Know Before You Go
+200	/plan-your-visit/before-the-opera/	page	1333	Before the Opera
+200	/plan-your-visit/contact-us/	page	1333	Contact Us
+200	/tnew/	tnewTemplatePage	2540	Tnew
+200	/education/	page	1333	Education
+200	/education/opera-treasure-chest/	page	1333	Opera Treasure Chest
+200	/education/access-opera/	page	1333	Access Opera
+200	/education/access-opera/lesson-plans/	page	1333	Lesson Plans
+200	/education/intro-to-opera/	page	1333	Intro to Opera
+200	/education/teaching-artists/	page	1333	Teaching Artists
+200	/education/learning-for-schools-educators/	page	1333	Learning for Schools & Educators
+200	/education/learning-for-adults/	page	1333	Learning for Adults
+200	/education/online-community-resources/	page	1333	Online & Community Resources
+200	/education/online-community-resources/meet-the-opera/	page	1333	Meet the Opera
+200	/umbraco-login-page/	page	1333	Umbraco Login Page
+200	/error-umbraco-login-page/	page	1333	Error Umbraco Login Page
+200	/ethan-test-page/	page	1333	Ethan Test Page
+200	/search-page/	search	1335	Search Page
+-	/people/	people		People
+-	/kara-davis/	person		Kara Davis
+-	/cute-cat/	person		Cute Cat
+-	/thanasis-laskaris/	person		Thanasis Laskaris
+-	/limmie-pulliam/	person		Limmie Pulliam
+-	/leah-crocetto/	person		Leah Crocetto
+-	/wei-wu/	person		Wei Wu
+-	/daryl-freedman/	person		Daryl Freedman
+-	/joseph-dennis/	person		Joseph Dennis
+-	/raquel-gonzalez/	person		Raquel González
+-	/malcolm-mackenzie/	person		Malcolm MacKenzie
+-	/hidenori-inoue/	person		Hidenori Inoue
+-	/kristen-choi/	person		Kristen Choi
+-	/rodell-rosel/	person		Rodell Rosel
+-	/e-loren-meeker/	person		E. Loren Meeker
+-	/steve-tyler/	person		Steve Tyler
+-	/fred-mcmillen/	person		Fred McMillen
+-	/jack-reeves/	person		Jack Reeves
+-	/lissa-anderson/	person		Lissa Anderson
+-	/zoie-reams/	person		Zoie Reams
+-	/rebecca-herman/	person		Rebecca Herman
+-	/jonathan-burton/	person		Jonathan Burton
+-	/mela-dailey/	person		Mela Dailey
+-	/lauren-snouffer/	person		Lauren Snouffer
+-	/mark-diamond/	person		Mark Diamond
+-	/ryan-everett-wood/	person		Ryan Everett Wood
+-	/robert-faires/	person		Robert Faires
+-	/anne-bogart/	person		Anne Bogart
+-	/hailey-clark/	person		Hailey Clark
+-	/eboni-adams/	person		Eboni Adams
+-	/joshua-blue/	person		Joshua Blue
+-	/demetrious-sampson-jr/	person		Demetrious Sampson, Jr
+-	/jasmine-habersham/	person		Jasmine Habersham
+-	/troy-cook/	person		Troy Cook
+-	/brandon-morales/	person		Brandon Morales
+-	/nicholas-nestorak/	person		Nicholas Nestorak
+-	/yulia-lysenko/	person		Yulia Lysenko
+-	/annisha-mackenzie/	person		Annisha Mackenzie
+-	/renee-tatum/	person		Renée Tatum
+-	/malcolm-mackenzie-2526/	person		Malcolm MacKenzie 25.26
+-	/mark-diamond-2425/	person		Mark Diamond 24/25
+-	/mary-dunleavy/	person		Mary Dunleavy
+-	/frederick-ballentine/	person		Frederick Ballentine
+-	/rachel-blaustein/	person		Rachel Blaustein
+-	/kyle-albertson/	person		Kyle Albertson
+-	/donnie-ray-albert/	person		Donnie Ray Albert
+-	/jamie-van-eyck/	person		Jamie Van Eyck
+-	/alison-mortiz/	person		Alison Mortiz
+-	/kameron-lopreore/	person		Kameron Lopreore
+-	/rachel-blaustein-2526/	person		Rachel Blaustein 25.26
+-	/michael-pandolfo-2526/	person		Michael Pandolfo 25.26
+-	/audrey-ballish-2526/	person		Audrey Ballish 25.26
+-	/ryan-everett-wood-2526/	person		Ryan Everett Wood 25.26
+-	/robert-faires-2526/	person		Robert Faires 25.26
+-	/sharon-robinson/	person		Sharon Robinson
+-	/crystal-manich-producing-advisor/	person		Crystal Manich (Producing Advisor)
+-	/steven-skybell/	person		Steven Skybell
+-	/mela-dailey-2526/	person		Mela Dailey 25.26
+-	/adam-k-roberts/	person		Adam K. Roberts
+-	/michael-pappalardo/	person		Michael Pappalardo
+-	/crystal-manich-stage-director/	person		Crystal Manich (Stage Director)
+-	/staff/	people		Staff
+-	/john-doe/	person		John Doe
+-	/annie-burridge/	person		Annie Burridge
+-	/timothy-myers/	person		Timothy Myers
+-	/jennifer-basten/	person		Jennifer Basten
+-	/claudia-chapa/	person		Claudia Chapa
+-	/melissa-bartling/	person		Melissa Bartling
+-	/andrea-ochoa/	person		Andréa Ochoa
+-	/dr-charles-d-carson/	person		Dr. Charles D. Carson
+-	/lolita-bonanni/	person		Lolita Bonanni
+-	/vincent-e-herod/	person		Vincent E. Herod
+-	/rebecca-graham-forbis/	person		Rebecca Graham-Forbis
+-	/beverly-fritelli/	person		Beverly Fritelli
+-	/cina-crisara/	person		Cina Crisara
+-	/nathan-depoint/	person		Nathan DePoint
+-	/angie-bonnici/	person		Angie Bonnici
+-	/daniel-acosta/	person		Daniel Acosta
+-	/alyssa-muir/	person		Alyssa Muir
+-	/laura-carrisosa/	person		Laura Carrisosa
+-	/chrissy-nanton/	person		Chrissy Nanton
+-	/caroline-leech/	person		Caroline Leech
+-	/luzi-media/	person		Luzi Media
+-	/joelle-allen/	person		Joelle Allen
+-	/radar-nonprofit-solutions/	person		Radar Nonprofit Solutions
+-	/robert-faires/	person		Robert Faires
+-	/adam-k-roberts/	person		Adam K. Roberts
+-	/janine-dworin-llewellyn/	person		Janine Dworin Llewellyn
+200	/?altTemplate=Sitemap	extra	1	extra
+200	/?altTemplate=sitemap	extra	1	extra
+404	/sitemap.xml	extra	1	extra
+200	/search-page/?q=opera	extra	1	extra
+200	/search-page/?query=opera	extra	1	extra
+200	/feed-page-blog/?page=1	extra	1	extra
+404	/this-page-does-not-exist/	extra	1	extra
+200	/css/ig-theme.css	extra	1	extra
+200	/search-page/?search=opera	extra	1	extra
+200	/umbraco/api/sitesearch/search?query=opera&amount=6&page=1&siteId=0	extra	1	extra
+200	/adage-test-page/component-library-kara/	extra	1	extra
+THEMEPROP	showThemeExplorer	Umbraco.TrueFalse	src=[0]	objType=Boolean	str=[False]
+THEMEPROP	headerLogoOnDark	Umbraco.MediaPicker3	src=[[{"key":"dddd8e4a-7162-48c4-96f8-03f9b0d88ac8","mediaKey":"1b7fc72a-5064-4f35-a57a-2be45d45bad7"}]]	objType=MediaWithCrops`1	str=[Umbraco.Cms.Core.Models.MediaWithCrops`1[Umbraco.Cms.Web.Common.PublishedModels.UmbracoMediaVectorGraphics]]
+THEMEPROP	headerLogoOnLight	Umbraco.MediaPicker3	src=[[{"key":"d9d86c86-d32d-4fde-afcb-2f298f38cff2","mediaKey":"b4906e63-438a-4e02-8422-07e376859169"}]]	objType=MediaWithCrops`1	str=[Umbraco.Cms.Core.Models.MediaWithCrops`1[Umbraco.Cms.Web.Common.PublishedModels.UmbracoMediaVectorGraphics]]
+THEMEPROP	favicon	Umbraco.MediaPicker3	src=[[{"key":"476a98a1-0566-437f-a90a-b05e149c7a94","mediaKey":"825b0d28-be59-408e-9f80-a9a30de12fb7"}]]	objType=MediaWithCrops`1	str=[Umbraco.Cms.Core.Models.MediaWithCrops`1[Umbraco.Cms.Web.Common.PublishedModels.Image]]
+THEMEPROP	appIcon	Umbraco.MediaPicker3	src=[[{"key":"e635795a-3822-44c6-b3b7-c1819c3db88a","mediaKey":"825b0d28-be59-408e-9f80-a9a30de12fb7"}]]	objType=MediaWithCrops`1	str=[Umbraco.Cms.Core.Models.MediaWithCrops`1[Umbraco.Cms.Web.Common.PublishedModels.Image]]
+THEMEPROP	iconBackgroundColor	Umbraco.TextBox	src=[]	objType=String	str=[]
+THEMEPROP	buttonBorderRadius	Umbraco.TextBox	src=[0]	objType=String	str=[0]
+THEMEPROP	toTopButtonColor	Umbraco.RadioButtonList	src=[theme-alt]	objType=String	str=[theme-alt]
+THEMEPROP	themeColor	Umbraco.TextBox	src=[#078A59]	objType=String	str=[#078A59]
+THEMEPROP	themeTertiary	Umbraco.TextBox	src=[]	objType=String	str=[]
+THEMEPROP	themeContrast	Umbraco.TextBox	src=[#FFF]	objType=String	str=[#FFF]
+THEMEPROP	themeAltColor	Umbraco.TextBox	src=[#F3B71A]	objType=String	str=[#F3B71A]
+THEMEPROP	themeAltColorContrast	Umbraco.TextBox	src=[#fff]	objType=String	str=[#fff]
+THEMEPROP	headingColorDark	Umbraco.TextBox	src=[#111]	objType=String	str=[#111]
+THEMEPROP	textColorDark	Umbraco.TextBox	src=[#444]	objType=String	str=[#444]
+THEMEPROP	borderDark	Umbraco.TextBox	src=[rgba(0,0,0,0.08)]	objType=String	str=[rgba(0,0,0,0.08)]
+THEMEPROP	headingColorLight	Umbraco.TextBox	src=[#FFF]	objType=String	str=[#FFF]
+THEMEPROP	textColorLight	Umbraco.TextBox	src=[#FFF]	objType=String	str=[#FFF]
+THEMEPROP	borderLight	Umbraco.TextBox	src=[rgba(255,255,255,0.1)]	objType=String	str=[rgba(255,255,255,0.1)]
+THEMEPROP	grayBackground	Umbraco.TextBox	src=[#F9F9F9]	objType=String	str=[#F9F9F9]
+THEMEPROP	darkBackground	Umbraco.TextBox	src=[#111]	objType=String	str=[#111]
+THEMEPROP	selectedNavigationItem	Umbraco.TextBox	src=[#078A59]	objType=String	str=[#078A59]
+THEMEPROP	success	Umbraco.TextBox	src=[#2ecc71]	objType=String	str=[#2ecc71]
+THEMEPROP	error	Umbraco.TextBox	src=[#e74c3c]	objType=String	str=[#e74c3c]
+THEMEPROP	embedFont	Umbraco.TextBox	src=[<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://use.typekit.net/ezq6ctb.css">]	objType=String	str=[<link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://use.typekit.net/ezq6ctb.css">]
+THEMEPROP	headingFont	Umbraco.TextBox	src=["Bebas Neue", sans-serif]	objType=String	str=["Bebas Neue", sans-serif]
+THEMEPROP	bodyFont	Umbraco.TextBox	src=["neue-haas-grotesk-display", sans-serif]	objType=String	str=["neue-haas-grotesk-display", sans-serif]
+THEMEPROP	textFontSize	Umbraco.TextBox	src=[1.125rem]	objType=String	str=[1.125rem]
+THEMEPROP	textBigFontSize	Umbraco.TextBox	src=[1.375rem]	objType=String	str=[1.375rem]
+THEMEPROP	textSmallFontSize	Umbraco.TextBox	src=[0.875rem]	objType=String	str=[0.875rem]
+THEMEPROP	textLineHeight	Umbraco.TextBox	src=[1.6]	objType=String	str=[1.6]
+THEMEPROP	textFontWeight	Umbraco.TextBox	src=[normal]	objType=String	str=[normal]
+THEMEPROP	textBigFontWeight	Umbraco.TextBox	src=[600]	objType=String	str=[600]
+THEMEPROP	headingLineHeight	Umbraco.TextBox	src=[1.025]	objType=String	str=[1.025]
+THEMEPROP	headingFontWeight	Umbraco.TextBox	src=[bold]	objType=String	str=[bold]
+THEMEPROP	heading1FontSize	Umbraco.TextBox	src=[5.875rem]	objType=String	str=[5.875rem]
+THEMEPROP	heading2FontSize	Umbraco.TextBox	src=[4.5rem]	objType=String	str=[4.5rem]
+THEMEPROP	heading3FontSize	Umbraco.TextBox	src=[3.625rem]	objType=String	str=[3.625rem]
+THEMEPROP	heading4FontSize	Umbraco.TextBox	src=[2.75rem]	objType=String	str=[2.75rem]
+THEMEPROP	heading5FontSize	Umbraco.TextBox	src=[2rem]	objType=String	str=[2rem]
+THEMEPROP	heading6FontSize	Umbraco.TextBox	src=[1.625rem]	objType=String	str=[1.625rem]
+THEMEPROP	heroHeadingFontSize	Umbraco.TextBox	src=[5.875rem]	objType=String	str=[5.875rem]
+THEMEPROP	heroHeadingMobileFontSize	Umbraco.TextBox	src=[3.25rem]	objType=String	str=[3.25rem]
+THEMEPROP	headerBackgroundColor	Umbraco.RadioButtonList	src=[white]	objType=String	str=[white]
+THEMEPROP	headerContainerWidth	Umbraco.RadioButtonList	src=[standard]	objType=String	str=[standard]
+THEMEPROP	headerLayout	Umbraco.RadioButtonList	src=[navigation-right]	objType=String	str=[navigation-right]
+THEMEPROP	headerHeight	Umbraco.TextBox	src=[90px]	objType=String	str=[90px]
+THEMEPROP	headerHeightMobile	Umbraco.TextBox	src=[50px]	objType=String	str=[50px]
+THEMEPROP	logoPadding	Umbraco.TextBox	src=[17px]	objType=String	str=[17px]
+THEMEPROP	logoPaddingMobile	Umbraco.TextBox	src=[12px]	objType=String	str=[12px]
+THEMEPROP	navigationPadding	Umbraco.TextBox	src=[30px]	objType=String	str=[30px]
+THEMEPROP	navigationPaddingSmallerScreens	Umbraco.TextBox	src=[15px]	objType=String	str=[15px]
+THEMEPROP	navigationFontSize	Umbraco.TextBox	src=[1rem]	objType=String	str=[1rem]
+THEMEPROP	navigationFontSizeMobile	Umbraco.TextBox	src=[1rem]	objType=String	str=[1rem]
+THEMEPROP	navigationFontWeight	Umbraco.TextBox	src=[bold]	objType=String	str=[bold]
+THEMEPROP	footerBackgroundColor	Umbraco.RadioButtonList	src=[dark]	objType=String	str=[dark]
+THEMEPROP	footerContainerWidth	Umbraco.RadioButtonList	src=[standard]	objType=String	str=[standard]
+THEMEPROP	containerWidthSmall	Umbraco.TextBox	src=[850px]	objType=String	str=[850px]
+THEMEPROP	containerWidth	Umbraco.TextBox	src=[1440px]	objType=String	str=[1440px]
+THEMEPROP	containerWidthBig	Umbraco.TextBox	src=[1600px]	objType=String	str=[1600px]
+THEMEPROP	gridGutter	Umbraco.TextBox	src=[30px]	objType=String	str=[30px]
+THEMEPROP	gridGutterMedium	Umbraco.TextBox	src=[15px]	objType=String	str=[15px]
+THEMEPROP	gridGutterSmall	Umbraco.TextBox	src=[15px]	objType=String	str=[15px]
+THEMEPROP	gridGutterXS	Umbraco.TextBox	src=[15px]	objType=String	str=[15px]
+THEME	C:\Projects\sandbox\AustingU13\U13-u17\AustinOpera_v13\AustinOpera_v13\wwwroot\css/generated-themes\ig-theme-aQ2cVAZ16kWZSEBMxWdMjg.css	generated=True	identical=True	length=1756	themePath=/css/generated-themes/ig-theme-aQ2cVAZ16kWZSEBMxWdMjg.css?v=190620251944

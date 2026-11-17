@@ -1,0 +1,77 @@
+/// <reference path="../../../entries/main">
+
+/// minimum size for form element font-size to prevent iOS resizing is 16px
+%form-element {
+    font-size: var(--font-size);
+    line-height: $form-field-line-height;
+    padding: $button-form-padding;
+    border: 1px solid var(--text-dark);
+    border-radius: 0;
+    font-family: $body-font;
+    outline-offset: 0;
+    outline: none;
+
+    @include dark-theme {
+        border-color: var(--text-light);
+    }
+
+    &:focus {
+        @include generate-focus-box-shadow($_weight: 'small');
+        outline: none;
+    }
+
+    &[aria-invalid="true"] {
+        border-color: var(--error);
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="date"] {
+    @extend %form-element;
+}
+
+select, textarea {
+    &,
+    // tnew bootstrap conflict
+    &.form-control {
+        @extend %form-element;
+    }
+}
+
+select,
+// tnew bootstrap conflict
+select.form-control {
+    @include select-dropdown($default-text);
+    appearance: none;
+    padding-right: $button-form-padding-h + $button-form-padding-v;
+    background-position: right $button-form-padding-h center;
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+label {
+    @extend %accent;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    & + label {
+        display: inline-block;
+    }
+}

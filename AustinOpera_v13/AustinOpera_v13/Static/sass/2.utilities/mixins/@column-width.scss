@@ -1,0 +1,60 @@
+﻿/// <reference path="../../entries/main">
+
+// The column-width mixin sets a width based on a certain # of columns in a layout
+// The gutters are taken into account to keep things aligned, based on the $gutter-map
+
+@function getGutterDifferenceTotal($total-columns: 12, $num: 1, $_gutter: 1rem) {
+    @return ($total-columns - $num) / $total-columns * $responsive-variable;
+}
+
+@function getPercentageTotal($total-columns: 12, $num: 1) {
+    @return $num * (1/$total-columns) * 100%;
+}
+
+@function getColumnWidth($total-columns: 12, $num: 1, $overflow-handled: false, $gutter-value: $max-gutter-width, $add-gutter: false) {
+    $_gutter-difference-total: getGutterDifferenceTotal($total-columns, $num, $gutter-value);
+    $_percentage-total: getPercentageTotal($total-columns, $num);
+
+    @if $add-gutter == false {
+        @if $overflow-handled == true {
+            @return calc(#{$_percentage-total} - #{$gutter-value});
+        }
+
+        @else {
+            @return calc(#{$_percentage-total} - #{$_gutter-difference-total});
+        }
+    }
+
+    @else {
+        @if $overflow-handled == true {
+            @return calc(#{$_percentage-total});
+        }
+
+        @else {
+            @return calc(#{$_percentage-total} - #{$_gutter-difference-total - $gutter-value});
+        }
+    }
+}
+
+@mixin column-width($total-columns: 12, $num: 1, $overflow-handled: false, $add-margin: false, $gutter: $gap) {
+    $_gutter-difference-total: getGutterDifferenceTotal($total-columns, $num, $responsive-variable);
+    $_percentage-total: getPercentageTotal($total-columns, $num);
+
+    @if $add-margin == true {
+        margin-right: $responsive-variable;
+    }
+
+    @if $overflow-handled == true {
+        width: calc(#{$_percentage-total} - #{$responsive-variable});
+    }
+
+    @else {
+        width: calc(#{$_percentage-total} - #{$_gutter-difference-total});
+    }
+}
+
+@mixin responsive-column-width($total-columns: 12, $num: 1, $overflow-handled: false, $add-margin: false, $spacing-map: $gutter-map-h) {
+    @include responsive-context($spacing-map) {
+        @include column-width($total-columns, $num, $overflow-handled, $add-margin, $responsive-variable);
+    }
+}

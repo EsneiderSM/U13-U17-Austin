@@ -1,0 +1,55 @@
+﻿/// <reference path="../../entries/main">
+
+// pass a map or 2 maps to this function to leverage the values in ways other than as just a value for a property
+
+// list of variables that are available when you use this mixin
+$responsive-variable: 0 !default; // value from the first map you pass
+$responsive-variable-2: 0 !default; // value from the second map you pass
+$responsive-breakpoint: 0 !default; // value of the breakpoint at each breakpoint
+
+@mixin responsive-context($map, $map2: null, $all-breakpoints: false) {
+    // preventing unnecessary lines in the compiled css
+    $_responsive-variable-last: null !global;
+    $_responsive-variable-next: null !global;
+    $_responsive-variable-2-last: null !global;
+    $_responsive-variable-2-next: null !global;
+
+    @each $breakpoint, $amount in $map {
+        // create version that outputs all breakpoints even if there's no change in value
+        @if $all-breakpoints == true {
+            $_responsive-variable-last: "x" !global;
+            $_responsive-variable-2-last: "x" !global;
+        }
+
+        $_responsive-variable-next: $amount !global;
+        $responsive-variable: $amount !global;
+        $responsive-breakpoint: $breakpoint !global;
+
+        @if $map2 != null {
+            $responsive-variable-2: map-get($map2, $breakpoint) !global;
+        }
+
+        @else {
+            $responsive-variable-2: 0 !global;
+        }
+
+        $_responsive-variable-2-next: $responsive-variable-2 !global;
+
+        @if $breakpoint == null {
+            @content;
+        }
+
+        @else if ($_responsive-variable-last != $_responsive-variable-next) or ($_responsive-variable-2-last != $_responsive-variable-2-next) {
+            @if map-has-key($breakpoints, $breakpoint) {
+                $breakpoint: map-get($breakpoints, $breakpoint);
+            }
+
+            @media screen and (max-width: $breakpoint) {
+                @content;
+            }
+        }
+
+        $_responsive-variable-last: $_responsive-variable-next !global;
+        $_responsive-variable-2-last: $_responsive-variable-2-next !global;
+    }
+}

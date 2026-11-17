@@ -1,0 +1,35 @@
+/// <reference path="../../../entries/main">
+
+.acc {
+    font-size: var(--font-size);
+
+    @at-root {
+        .white-bg &,
+        .gray-bg & {
+            --border-dark: #{$brand-purple};
+        }
+
+        .dark-bg & {
+            --border-light: #{$brand-purple};
+        }
+    }
+
+    .acc__head {
+        @extend %h5;
+        padding: $gap-sm 0;
+
+        i {
+            right: 0;
+            opacity: 1;
+            font-size: .5em;
+        }
+    }
+
+    .acc__body {
+        padding-left: 0;
+    }
+
+    .acc__button {
+        margin-top: $gap-sm;
+    }
+}

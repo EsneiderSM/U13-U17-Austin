@@ -1,0 +1,58 @@
+﻿/// <reference path="../../entries/main">
+
+.x-btn {
+    @extend %btn;
+    width: $svg-icon-sm;
+    height: $svg-icon-sm;
+    min-width: 0;
+    position: relative;
+    display: inline-block;
+    line-height: 1;
+    background: transparent;
+    padding: 0;
+    border: 0;
+
+    &::before,
+    &::after {
+        content: '';
+        display: block;
+        width: hypotenuse($svg-icon-sm, $svg-icon-sm) * 0.8;
+        border-top: $ui-icon-thickness solid $default-text;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    &::before {
+        transform: translateX(-50%) rotate(-45deg);
+    }
+
+    &::after {
+        transform: translateX(-50%) rotate(45deg);
+    }
+}
+
+.dropdown-trigger {
+    position: relative;
+    padding-right: calc(#{$gap} + #{$svg-icon-xs});
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: $svg-icon-xs;
+        height: $svg-icon-xs;
+        border: $ui-icon-thickness solid currentColor;
+        border-top-width: 0;
+        border-right-width: 0;
+        right: $gap / 2;
+        top: 50%;
+        transform-origin: center center;
+        transform: translateY(-70%) rotate(-45deg);
+        transition: $transition;
+    }
+
+    &-up::after {
+        transform: translateY(-30%) rotate(-225deg);
+    }
+}

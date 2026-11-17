@@ -1,0 +1,33 @@
+﻿/// <reference path="../../entries/main">
+@mixin checkmark() {
+    
+    &::before {
+        border-radius: $border-radius;
+        width: $radiocheck-size;
+        height: $radiocheck-size;
+        margin-right: 10px;
+        border: 1px solid var(--theme);
+    }
+
+    &::before, &::after {
+        position: absolute;
+        content: '';
+        left: $gap-sm;
+        top: 10px;
+    }
+
+    &::after {
+        height: 4px;
+        width: 10px;
+        border-left: 2px solid var(--theme);
+        border-bottom: 2px solid var(--theme);
+        transform: rotate(315deg);
+        top: 15px;
+        left: 21px;
+        opacity: 0;
+
+        @include media(tablet) {
+            left: 17px;
+        }
+    }
+}

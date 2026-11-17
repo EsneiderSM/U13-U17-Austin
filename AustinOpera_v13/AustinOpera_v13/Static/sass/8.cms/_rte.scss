@@ -1,0 +1,18 @@
+﻿body {
+    display: block;
+    min-height: 0;
+    height: auto;
+    padding-top: 0;
+}
+
+.umb-rte {
+    @extend .rich-text;
+}
+
+.umb-rte [data-mce-selected=inline-boundary].btn {
+    @extend .btn;
+}
+
+.umb-rte [data-mce-selected=inline-boundary].btn-secondary {
+    @extend .btn-secondary;
+}

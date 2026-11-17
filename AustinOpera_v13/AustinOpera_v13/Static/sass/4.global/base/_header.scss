@@ -1,0 +1,231 @@
+﻿/// <reference path="../../entries/main">
+
+// ------------- HEADER - STRUCTURE ------------- //
+header {
+    padding: 1rem 0;
+    position: relative;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+// ------------- MAIN NAV - STRUCTURE ------------- //
+.main-nav {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gap;
+    padding-right: $gap;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    > * {
+        + * {
+            margin-left: 1rem;
+        }
+    }
+}
+
+// ------------- MAIN NAV TRIGGER - STRUCTURE ------------- //
+.main-nav-navtrigger {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+
+    [aria-hidden="true"] {
+        display: none;
+    }
+
+    [aria-hidden="false"] {
+        display: block;
+    }
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+// ------------- MAIN NAV CONTAINER - STRUCTURE ------------- //
+.main-nav-container {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    padding: 2rem 0;
+    left: 0;
+    border-bottom: 1px solid transparent;
+    margin: 0;
+
+    ul {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        li + li {
+            margin-top: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &[aria-hidden="true"] {
+        display: none;
+    }
+
+    &[aria-hidden="false"] {
+        display: block;
+    }
+}
+
+// ------------- MAIN NAV HOME - STRUCTURE ------------- //
+.main-nav-home {
+    flex-grow: 1;
+
+    &-inner, a {
+        height: 1.5rem;
+        width: 8.5rem;
+        display: flex;
+    }
+
+    svg {
+        height: 1.5rem;
+        width: 8.5rem;
+    }
+}
+
+// ------------- MAIN NAV UTILITIES - STRUCTURE ------------- //
+.main-nav-utilities {
+    display: flex;
+
+    &-item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0.5rem;
+        border-radius: 0.125rem;
+        position: relative;
+
+        + * {
+            margin-left: 1rem;
+        }
+
+        &-label {
+            margin-right: 0.5rem;
+            font-weight: bold;
+
+            @include media(small) {
+                display: none;
+            }
+        }
+
+        .cart-counter {
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+            top: 0.25rem;
+            right: 1.5rem;
+            font-size: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            font-weight: bold;
+        }
+
+        svg {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+    }
+}
+
+// ------------- MAIN NAV CONTAINER - SKIN ------------- //
+.main-nav-container {
+    ul {
+        a {
+            font-weight: 300;
+
+            @include font-size($medium-large-font-sizes);
+        }
+    }
+}
+
+// ------------- MAIN NAV UTILITIES - SKIN ------------- //
+.main-nav-utilities {
+    &-item {
+
+        &-label {
+            font-weight: bold;
+
+            @extend %small;
+        }
+
+        .cart-counter {
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    }
+}
+
+// ------------- HEADER - SKIN ------------- //
+header {
+    border-bottom: 1px solid transparent;
+    background: $white;
+    border-color: $gray-light;
+
+}
+
+// ------------- MAIN NAV TRIGGER - SKIN ------------- //
+.main-nav-navtrigger {
+    svg {
+        fill: $black;
+    }
+}
+
+// ------------- MAIN NAV CONTAINER - SKIN ------------- //
+.main-nav-container {
+    background: $white;
+    border-color: $gray-light;
+}
+
+// ------------- MAIN NAV HOME - SKIN ------------- //
+.main-nav-home {
+    svg {
+        fill: $black;
+    }
+}
+
+// ------------- MAIN NAV UTILITIES - SKIN ------------- //
+.main-nav-utilities {
+    &-item {
+
+        svg {
+            fill: $black;
+        }
+
+        .cart-counter {
+            background: $black;
+            color: $white;
+        }
+
+        &:hover, &:focus {
+            background: $gray-light;
+
+            .cart-counter {
+                background: $gray-dark;
+            }
+
+            svg {
+                fill: $gray-dark;
+            }
+        }
+    }
+}

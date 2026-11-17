@@ -1,0 +1,61 @@
+/// <reference path="../../../entries/main">
+
+// Umbraco Forms Igloo theme overrides
+
+form label {
+    margin-bottom: $space;
+
+    & + .help-block {
+        margin-bottom: $space;
+    }
+}
+
+label + .field-validation-error {
+    margin-top: 0;
+}
+
+legend {
+    @extend %h3;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 0;
+
+    & + * {
+        margin-top: $paragraph-spacing;
+    }
+
+    &:nth-child(n) {
+        // override all themes
+        background: transparent;
+    }
+}
+
+fieldset fieldset legend {
+    // nested
+    @extend %h4;
+}
+
+.help-block {
+    margin: 0;
+    padding: 0;
+}
+
+.umbraco-forms-field {
+    &.dataconsent {
+        // apparent missing style
+        margin-bottom: var(--grid-gutter);
+    }
+
+    &.checkbox &-wrapper {
+        position: static;
+    }
+
+    &.checkbox {
+        padding-left: 0;
+
+        label {
+            font-size: var(--font-size);
+        }
+    }
+}

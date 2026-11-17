@@ -1,0 +1,71 @@
+﻿/// <reference path="../../../entries/main">
+
+:root {
+    --navigation-font-size: 1.625rem;
+
+    @include media(tablet) {
+        --font-size-h1: 3.2rem;
+        --font-size-h2: 2.25rem;
+        --font-size-h3: 1.875rem;
+        --font-size-h4: 1.625rem;
+        --font-size-h6: 1.5rem;
+        --font-size-h6: 1.25rem;
+        --navigation-font-size: 1rem;
+    }
+}
+
+%heading {
+    font-family: var(--heading-font);
+    line-height: var(--heading-line-height);
+    font-weight: var(--heading-font-weight);
+}
+
+h1, %h1, .h1-styled {
+    @extend %heading;
+    font-size: var(--font-size-h1);
+}
+
+h2, %h2, .h2-styled {
+    @extend %heading;
+    font-size: var(--font-size-h2);
+}
+
+h3, %h3, .h3-styled {
+    @extend %heading;
+    font-size: var(--font-size-h3);
+}
+
+h4, %h4, .h4-styled {
+    @extend %heading;
+    font-size: var(--font-size-h4);
+}
+
+h5, %h5, .h5-styled {
+    @extend %heading;
+    font-size: var(--font-size-h5);
+}
+
+h6, %h6, .h6-styled {
+    @extend %heading;
+    font-size: var(--font-size-h6);
+}
+
+.pre-head, %preheading {
+    font-size: var(--font-size-h6);
+    letter-spacing: normal;
+    opacity: 1;
+    margin: 0;
+}
+
+.large, %large {
+    font-size: var(--font-size-big);
+}
+
+form label {
+    font-size: var(--label-text);
+}
+
+.help-block,
+.field-validation-error {
+    font-size: var(--font-size-small);
+}

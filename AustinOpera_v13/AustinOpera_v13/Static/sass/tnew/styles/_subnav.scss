@@ -1,0 +1,139 @@
+﻿/// <reference path="../tnew">
+.pre-top {
+    display: none;
+}
+$input-width: 15rem;
+form#tn-apply-promo {
+    display: flex;
+    flex-flow: row wrap;
+
+    @include media(medium) {
+        display: flex;
+        width: 100%;
+        flex-flow: row;
+    }
+
+    input {
+        border-color: var(--black);
+        background-color: #fff;
+        border: solid 1.5px;
+        padding: $gap-xs $gap-sm;
+        margin: 0;
+        min-width: $input-width;
+        font-size: var(--font-size);
+
+        @include media(large) {
+            min-width: 0;
+        }
+
+        @include media(medium) {
+            flex-grow: 1;
+        }
+
+        @include media(small) {
+            min-width:50%;
+        }
+    }
+}
+
+#tn-subnav-promo-button {
+    background-color: var(--theme);
+    color: #fff;
+    text-decoration: none;
+    padding: $gap-xxs $gap-md;
+    font-family: var(--heading-font);
+    font-size: var(--font-size);
+}
+
+.tn-login-link {
+    @include media(medium) {
+        width: 100%;
+    }
+
+    .tn-icon {
+        display: none;
+    }
+    .tn-text {
+        display:inline-block !important;
+    }
+}
+
+.tn-link {
+    color: var(--black);
+    border: solid 1.5px var(--black);
+    padding: $gap-xxs $gap-md;
+    font-family: var(--heading-font);
+}
+
+.tn-subnav-component {
+    margin-bottom: 3.875rem;
+    margin-top: $gap;
+    // some nested elements are in em
+    font-size: 1rem;
+
+    @include media(medium) {
+        display: flex;
+        flex-flow: row wrap;
+        gap: $gap-xs;
+        margin-left: 0;
+    }
+
+    .tn-login-link .tn-link .tn-text {
+        margin-left: 0;
+        font-size: var(--font-size);
+    }
+
+    .tn-login-link .tn-link, .tn-cart-link .tn-link {
+        @include media(medium) {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .tn-promo-box {
+        @include media(medium) {
+            margin-top: $gap-md;
+        }
+    }
+
+    .tn-login-link.tn-logged-in .tn-logged-in-email {
+        font-size: var(--font-size)
+    }
+}
+
+.tn-cart-link {
+    @include media(medium) {
+        width: 100%;
+    }
+
+    .tn-link {
+        background-color: var(--theme);
+        color: #fff;
+        border-color: var(--theme);
+
+        .tn-icon {
+            display: none;
+        }
+
+        .tn-text {
+            font-size: var(--font-size);
+            display:inline-block!important;
+        }
+    }
+}
+
+section.tn-header-component h1 {
+    margin-bottom: $gap-md;
+}
+
+@include media(medium) {
+    .tn-subnav-component .tn-login-link .tn-link .tn-text, .tn-logged-in-text, .tn-subnav-component .tn-cart-link .tn-link .tn-text {
+        display: block;
+    }
+
+    .tn-subnav-component .tn-cart-link, .tn-subnav-component .tn-login-link, .tn-subnav-component .tn-promo-box {
+        display: flex;
+        width: 100%;
+        margin: 0;
+    }
+}

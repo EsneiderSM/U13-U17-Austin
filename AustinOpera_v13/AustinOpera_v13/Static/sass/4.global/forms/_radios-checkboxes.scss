@@ -1,0 +1,197 @@
+﻿/// <reference path="../../entries/main">
+
+$_radiocheck-size: $radiocheck-size;
+$_radiocheck-padding: $radiocheck-padding;
+$_radiocheck-offset: -0.05em;
+$_radiocheck-weight: $radiocheck-weight;
+
+*:not(label) > input[type="checkbox"],
+*:not(label) > input[type="radio"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    &:focus {
+        outline: none;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    &:focus {
+        & + label,
+        & + input[type="hidden"] + label {
+            @include focused;
+        }
+    }
+
+    & + label,
+    & + input[type="hidden"] + label {
+        @extend %accent;
+        @include focus;
+        position: relative;
+        display: inline-block;
+        margin-left: 0;
+
+        &::before {
+            content: '';
+            border: $_radiocheck-weight solid $default-text;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: $_radiocheck-offset;
+        }
+
+        @include dark-theme() {
+            &::before {
+                border-color: $white;
+            }
+        }
+    }
+
+    &:checked + label,
+    &:checked + input[type="hidden"] + label {
+        &::after {
+            content: '';
+            position: absolute;
+            display: inline-block;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:checked {
+        & + label,
+        & + input[type="hidden"] + label {
+            &::before {
+                border-color: $gray-dark;
+
+                @include dark-theme() {
+                    border-color: $gray-light;
+                }
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        & + label,
+        & + input[type="hidden"] + label {
+            color: $gray-dark;
+
+            @include dark-theme() {
+                color: $gray-light;
+            }
+        }
+    }
+
+    &[disabled] {
+        & + label,
+        & + input[type="hidden"] + label {
+            color: $gray;
+
+            &::before {
+                border-color: $gray;
+            }
+        }
+    }
+}
+// SIZING
+input[type="radio"],
+input[type="checkbox"] {
+    & + label,
+    & + input[type="hidden"] + label {
+        padding-left: $_radiocheck-size + $_radiocheck-padding;
+
+        &::before {
+            width: $_radiocheck-size;
+            height: $_radiocheck-size;
+        }
+    }
+}
+// CHECKBOX
+input[type="checkbox"] {
+    & + label,
+    & + input[type="hidden"] + label {
+        &::after {
+            @extend %checkmark;
+            content: none;
+
+            @include dark-theme() {
+                border-color: $white;
+            }
+        }
+
+        &::before {
+            border-radius: 3px;
+        }
+    }
+
+    &:checked + label,
+    &:checked + input[type="hidden"] + label {
+        &::before {
+            border-color: $gray-dark;
+
+            @include dark-theme() {
+                border-color: $gray-light;
+            }
+        }
+    }
+}
+// RADIO
+input[type="radio"] {
+    & + label,
+    & + input[type="hidden"] + label {
+        &::before {
+            border-radius: 50%;
+        }
+
+        &::after {
+            background-color: $gray-dark;
+            border: $_radiocheck-weight solid transparent;
+            border-radius: 50%;
+            transform: scale(0.5);
+            top: $_radiocheck-offset;
+            left: 0;
+
+            @include dark-theme() {
+                background-color: $gray-light;
+            }
+        }
+    }
+
+    &:hover,
+    &:checked {
+        & + label,
+        & + input[type="hidden"] + label {
+            &::after {
+                background-color: $gray-dark;
+
+                @include dark-theme() {
+                    background-color: $gray-light;
+                }
+            }
+        }
+    }
+}
+// SIZING
+input[type="radio"] {
+    & + label,
+    & + input[type="hidden"] + label {
+        &::after {
+            width: $_radiocheck-size;
+            height: $_radiocheck-size;
+        }
+    }
+}
+
+.#{$prefix}radiocheck {
+    &-offset {
+        margin-left: $radiocheck-offset;
+    }
+}

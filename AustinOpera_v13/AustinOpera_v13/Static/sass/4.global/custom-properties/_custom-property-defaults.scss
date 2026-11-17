@@ -1,0 +1,21 @@
+﻿/// <reference path="../../entries/main">
+
+body {
+    --button-form-padding-h: #{$button-form-padding-h};
+    --button-form-padding-v: #{$button-form-padding-v};
+    --button-form-padding: #{$button-form-padding};
+    --square-button-size: #{$square-button-size};
+    --bg-color: #{$white};
+
+    @include media(small) {
+        --button-form-padding-h: 0.625rem;
+        --button-form-padding-v: 0.75rem;
+        --button-form-padding: 0.625rem 0.75rem;
+        --square-button-size: calc(#{1rem * $body-line-height + (0.625rem * 2)} + #{$button-form-border * 2});
+    }
+
+    @include responsive-context($gutter-map-h, $gutter-map-v) {
+        --gutter-h: #{$responsive-variable};
+        --gutter-v: #{$responsive-variable-2};
+    }
+}

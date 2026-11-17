@@ -1,0 +1,71 @@
+﻿/// <reference path="../../entries/main">
+
+@each $_theme, $_values in $themes {
+    $_background: map-get($_values, 'background');
+    $_foreground: map-get($_values, 'foreground');
+    $_foreground-light: map-get($_values, 'foreground-light');
+    $_links: map-get($_values, 'links');
+    $_button-primary: map-get($_values, 'button-primary');
+    $_button-secondary: map-get($_values, 'button-secondary');
+
+    %theme-#{$_theme} {
+        @if $_background != null {
+            --background-color: #{$_background};
+            background-color: $_background;
+        }
+
+        @if $_foreground != null {
+            --foreground-color: #{$_foreground};
+            color: $_foreground;
+
+            .x-btn {
+                &::before,
+                &::after {
+                    border-color: $_foreground;
+                }
+            }
+        }
+
+        @if $_links != null {
+            a:not([class*="btn"]) {
+                @include link-helper(nth($_links, 1), nth($_links, 2));
+            }
+        }
+
+        @if $_button-primary != null {
+            %btn-primary {
+                @include button-helper($_button-primary);
+            }
+        }
+
+        @if $_button-secondary != null {
+            %btn-secondary {
+                @include button-helper($_button-secondary);
+            }
+        }
+
+        @if $_foreground-light != null {
+            .light {
+                color: $_foreground-light;
+            }
+        }
+    }
+
+    .theme-#{$_theme} {
+        @extend %theme-#{$_theme};
+    }
+}
+
+// By extending light and dark themes, we have fallbacks with light specificity that will be overridden easily
+
+@each $_theme in $default-themes {
+    .theme-#{$_theme} {
+        @extend %theme-default;
+    }
+}
+
+@each $_theme in $dark-themes {
+    .theme-#{$_theme} {
+        @extend %theme-dark;
+    }
+}

@@ -1,0 +1,123 @@
+﻿/// <reference path="../../entries/main">
+
+// Basic hide: hides from all users, easily overridden in different contexts
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+// Visually hidden: only hides element from sighted users, still available for users of assisted technology
+.visually-hidden {
+    @include visually-hidden;
+}
+
+// Hidden attribute: semantic control for hiding elements, overrides all other styles
+[hidden] {
+    display: none !important;
+}
+
+.svg-icon {
+    width: $svg-icon-sm;
+    height: $svg-icon-sm;
+    fill: currentColor;
+    vertical-align: middle;
+    display: inline-block;
+    margin-bottom: 0.125em;
+}
+
+.btn-round {
+    border-radius: 999em;
+}
+
+.gray {
+    background: $gray-light;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+.card {
+    @extend %card-padding;
+    border-radius: $border-radius-lg;
+}
+
+.card-v {
+    @include responsive-context($gutter-map-v) {
+        padding-top: $responsive-variable;
+        padding-bottom: $responsive-variable;
+    }
+}
+
+.flex-between {
+    @extend %flex-between;
+}
+
+.flex-fiftyfifty {
+    @extend %flex-fiftyfifty;
+}
+
+.align-items {
+    &-top {
+        align-items: flex-start;
+    }
+
+    &-center {
+        align-items: center;
+    }
+
+    &-bottom {
+        align-items: flex-end;
+    }
+}
+
+.align-self {
+    &-top {
+        align-self: flex-start;
+    }
+
+    &-center {
+        align-self: center;
+    }
+
+    &-bottom {
+        align-self: flex-end;
+    }
+}
+
+// Show/hide classes from Flex Subs
+.#{$prefix}show-for-tablet {
+    @include media-min(tablet) {
+        display: none;
+    }
+}
+
+.#{$prefix}hide-for-tablet {
+    @include media(tablet) {
+        display: none;
+    }
+}
+
+.#{$prefix}show-for-small {
+    @include media-min(small) {
+        display: none;
+    }
+}
+
+.#{$prefix}hide-for-small {
+    @include media(small) {
+        display: none;
+    }
+}
+
+// This just displays labels for demo/documentation purposes to show the package(s) structure
+// Remove this to hide them
+[data-demo-label] {
+    &::before {
+        @extend %small;
+        //content: attr(data-demo-label);
+        display: block;
+        width: fit-content;
+        background-color: rgba($black, 0.1);
+        padding: $sliver;
+        font-weight: $font-weight-normal;
+    }
+}

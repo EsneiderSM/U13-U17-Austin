@@ -1,0 +1,9 @@
+﻿/// <reference path="../../../entries/main">
+:root {
+    --grid-width: 1440px;
+
+    @include media(medium) {
+        --header-height: 4.375rem;
+        --pre-top-height: 0px;
+    }
+}

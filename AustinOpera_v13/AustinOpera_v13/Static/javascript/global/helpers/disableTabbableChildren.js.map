@@ -1,0 +1,1 @@
+{"version":3,"file":"disableTabbableChildren.js","sourceRoot":"","sources":["disableTabbableChildren.ts"],"names":[],"mappings":";;;AAAA,SAAgB,uBAAuB,CAAC,MAAM;IAC1C,IAAI,gBAAgB,GAAG,EAAE,CAAC,KAAK,CAAC,IAAI,CAAC,MAAM,CAAC,gBAAgB,CAAC,oCAAoC,CAAC,CAAC,CAAC;IACpG,gBAAgB,CAAC,OAAO,CAAC,UAAA,KAAK;QAC1B,KAAK,CAAC,QAAQ,GAAG,CAAC,CAAC,CAAC;IACxB,CAAC,CAAC,CAAA;AACN,CAAC;AALD,0DAKC"}

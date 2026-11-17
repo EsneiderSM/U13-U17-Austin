@@ -1,0 +1,10 @@
+﻿// updated for Igloo-style light-color text theme on dark
+
+@mixin dark-theme() {
+    @at-root {
+        .light-color &,
+        .dark-bg.light-color & {
+            @content;
+        }
+    }
+}

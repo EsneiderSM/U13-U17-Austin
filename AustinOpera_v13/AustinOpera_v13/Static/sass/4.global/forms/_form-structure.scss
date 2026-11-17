@@ -1,0 +1,132 @@
+﻿/// <reference path="../../entries/main">
+
+// Form wrapper that applies wrapping grid styles for all child items
+.#{$prefix}form {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > * {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    @include responsive-context($gutter-map-small, $gutter-map-v, $all-breakpoints: true) {
+        max-width: $max-input-width + $responsive-variable;
+        margin-right: -$responsive-variable;
+        margin-bottom: -$responsive-variable-2;
+
+        & > * {
+            margin-right: $responsive-variable;
+            margin-bottom: $responsive-variable-2;
+        }
+    }
+
+    @include media(mobile) {
+        max-width: $max-input-width;
+        margin-right: 0;
+
+        & > * {
+            margin-right: 0;
+        }
+    }
+
+    &-section {
+        & + & {
+            @include responsive-context($block-margin-map) {
+                margin-top: $responsive-variable;
+            }
+        }
+    }
+}
+
+.#{$prefix} {
+    &form-item,
+    &form-item-sm,
+    &form-item-xs {
+        & > span {
+            display: block;
+        }
+
+        & > * + * {
+            @extend %small-top-margin;
+        }
+    }
+
+    &form > &form-item {
+        @include responsive-context($gutter-map-small, $all-breakpoints: true) {
+            width: calc(100% - #{$responsive-variable});
+
+            &-sm {
+                width: calc(50% - #{$responsive-variable});
+            }
+
+            &-xs {
+                width: calc(#{$one-third} - #{$responsive-variable});
+            }
+        }
+
+        @include media(mobile) {
+            &,
+            &-sm,
+            &-xs {
+                width: 100%;
+            }
+        }
+    }
+
+    &form-item {
+        &-sm,
+        &-xs {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            & > * {
+                flex: 0 0 auto;
+            }
+
+            @at-root {
+                body[data-validation-errors] & {
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+
+    &input-label {
+        @extend %flex-between;
+        align-items: baseline;
+    }
+}
+
+// Input list
+.#{$prefix}input-list {
+    max-width: $max-input-width;
+
+    input[type="radio"] + label,
+    input[type="checkbox"] + label {
+        display: block;
+    }
+
+    .reveal-panel {
+        // nested expanding panel
+        padding-left: $radiocheck-offset;
+        margin-top: $paragraph-spacing;
+        margin-bottom: $paragraph-spacing;
+    }
+
+    & > * + * {
+        margin-top: $paragraph-spacing;
+    }
+
+    &-item {
+        &.flex {
+            @extend %flex-between;
+            align-items: center;
+        }
+
+        & > label {
+            padding-left: $radiocheck-size + $radiocheck-padding;
+        }
+    }
+}

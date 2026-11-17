@@ -1,0 +1,37 @@
+/// <reference path="../tnew">
+
+.tn-patron-billing-information, .tn-patron-shipping-information {
+    flex: 1 0 33%;
+    min-width: min-content;
+
+    > * {
+        width: 100% !important;
+    }
+
+    h2 {
+        @extend %h5;
+    }
+}
+
+.tn-order-address-information-component {
+    > .row {
+        gap: $gap-sm;
+
+        &::before,
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.tn-payment-page-mobile-opt-in-component {
+    margin-top: var(--grid-gutter);
+}
+
+.tn-heading-info {
+    color: var(--text-dark);
+    background-color: $alert-bg;
+    padding: 1.125rem;
+    border-radius: 0.25rem;
+    border: 0;
+}

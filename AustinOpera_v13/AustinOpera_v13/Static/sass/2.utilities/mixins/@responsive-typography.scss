@@ -1,0 +1,15 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+    $_default-sizes: map-get($fs-map, default);
+    $_font-name: map-get($fs-map, name);
+    font-size: nth($_default-sizes, 1);
+    line-height: nth($_default-sizes, 2);
+    font-size: var(--#{$_font-name});
+    line-height: var(--#{$_font-name}-height);
+
+    @if(length($_default-sizes) > 2) {
+        letter-spacing: nth($_default-sizes, 3);
+        letter-spacing: var(--#{$_font-name}-spacing);
+    }
+}

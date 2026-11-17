@@ -1,0 +1,91 @@
+/// <reference path="../../../entries/main">
+
+.top .main-nav {
+
+    .main-nav__ul {
+        gap: $space;
+    }
+
+    .main-nav__a {
+        border: none;
+        font-family: var(--heading-font);
+
+        @include media-min(medium) {
+            display: flex;
+            gap: $space;
+            align-items: center;
+        }
+
+        .expand {
+            background: none;
+
+            &.open i {
+                transform: rotate(180deg);
+            }
+        }
+
+        span {
+            font-size: var(--navigation-font-size);
+        }
+
+        .fa.fa-search {
+            @include media-min(tablet) {
+                font-size: 1.35rem;
+            }
+        }
+    }
+
+    .main-nav__li.touch-open > a .fa-chevron-down::before {
+        content: "\f078";
+    }
+
+    .main-nav__li--btn {
+        .button {
+            font-size: 20px;
+        }
+
+        @include media(medium) {
+            text-align: left;
+            padding: 0 var(--grid-gutter);
+
+            .button {
+                width: 100%;
+            }
+        }
+    }
+
+    .toggle-search .main-nav__a {
+        justify-content: center;
+    }
+
+
+    .top-nav-mobile i {
+        display: none;
+    }
+
+    .main-nav__li.selected:hover {
+        .main-nav__a span {
+            text-decoration: underline;
+        }
+    }
+}
+
+.navigation ul li a {
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.navigation-column {
+    @include media-min(medium) {
+        &-2 {
+            columns: 2;
+        }
+
+        &-3 {
+            columns: 3;
+        }
+    }
+}

@@ -1,0 +1,29 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+@using Umbraco.Cms.Core.Models.Blocks;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using AustinOpera_v13.Helpers;
+
+@{
+    var content = (ContentModels.ColumnQuote)Model.Content;
+    var settings = (ContentModels.ColumnQuoteSettings)Model.Settings;
+    var imageAltText = AdageHtmlHelper.GetAltText(content.AuthorImage, content.Author);
+    bool hasImage = content.AuthorImage != null;
+
+
+}
+
+<div class="grid-item grid-item--quote @(settings.BoxedColumn ? "grid-item--boxed" : "")">
+    <blockquote>
+        @content.Quote
+    </blockquote>
+    <div class="blockquote-footer">
+        @if (hasImage)
+        {
+            <img src="@(content.AuthorImage.GetCropUrl(100,100,quality: 80))" alt="@imageAltText">
+        }
+        <div class="@(!hasImage ? "space-top-lg blockquote-footer" : "blockquote-footer")">
+            <span class="h6-styled">@content.Author</span>
+            <p>@content.AuthorTitle</p>
+        </div>
+    </div>
+</div>

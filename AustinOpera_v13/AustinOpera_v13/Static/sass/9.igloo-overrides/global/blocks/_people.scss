@@ -1,0 +1,14 @@
+/// <reference path="../../../entries/main">
+.person {
+    img {
+        max-width: 250px;
+        width: 250px;
+        height: 100%;
+    }
+
+    &.text-center {
+        img {
+            margin: 0 auto;
+        }
+    }
+}

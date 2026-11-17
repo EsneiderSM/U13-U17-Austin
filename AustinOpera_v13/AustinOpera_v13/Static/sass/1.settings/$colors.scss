@@ -1,0 +1,53 @@
+﻿// Basic colors
+$white: #ffffff;
+$black: #000000;
+$teal: #0D9B8B;
+$navy: #031522;
+$lime: #A6CA59;
+$blue: #0C3553;
+$gray-light: #F7F7F8;
+$gray-dark: #4A5A60;
+$green: #048600;
+$red: #8B1F18;
+$brand-purple: #7671AC;
+$brand-yellow: #F3B71A;
+$brand-green: #078A59;
+
+$palette-orange: #e9703c;
+$palette-pink: #f2b0c2;
+$palette-teal: #98cbbf;
+
+$red-medium: mix($white, $red, 10%);
+$red-light: #f8d7da;
+$gray-lighter: mix($black, $white, 8%);
+$gray-medium: mix($black, $white, 48%);
+$gray-neutral: mix($black, $white, 30%);
+$gray: #bdbbc4;
+$yellow-light: #fff9c4;
+$orange: #f57f17;
+$blue-light: #bbdefb;
+$blue-dark: #0d47a1;
+$shadow: 0.16rem 0.16rem 0.6rem rgba($black, 0.3);
+
+// Common color config
+$default-text: $black;
+$default-secondary: $gray-dark;
+$default-focus-ring: $blue;
+
+$ui-invalid: $red;
+$ui-valid: $green;
+
+// Button config for Primary and Secondary styles, declared so it's easy to merge
+$default-button-config: (
+        off: ($black, $white),
+        on: ($gray-dark, $white),
+        focus: ($gray-light, $black, outline),
+        disabled: ($gray-medium, $white)
+    );
+
+$default-button-secondary-config: (
+        off: ($white, $black, outline),
+        on: ($black, $white),
+        focus: map-get($default-button-config, focus),
+        disabled: ($white, $gray-medium, outline)
+    );

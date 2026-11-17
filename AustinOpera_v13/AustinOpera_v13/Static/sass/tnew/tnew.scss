@@ -1,0 +1,135 @@
+﻿@import 'mixins/_breakpoints.scss';
+@import 'styles/_font-awesome.scss';
+
+$bold: 700;
+$normal: 400;
+
+$space: 0.5rem;
+$gap-xxs: .625rem;
+$gap-xs: .75rem;
+$gap-sm: 1rem;
+$gap-md: 1.5rem;
+$gap: 2rem;
+
+$alert-bg: #EFF8FC;
+
+html body .tnew-container {
+
+    .btn-primary {
+        color: var(--white);
+        border: none;
+        background-color: var(--theme);
+
+        &:hover, &:active, &:focus {
+            background-color: var(--black);
+            color: var(--white);
+        }
+    }
+
+    @import 
+    '../../sass/2.utilities/mixins/@link-helper.scss',
+    '../../sass/9.igloo-overrides/global/typography/_typography.scss',
+    'styles/_buttons.scss',
+    'styles/_subnav.scss', 
+    'styles/_event-page.scss',
+    'styles/_cart.scss',
+    'styles/_donate.scss'
+    ;
+
+    .form-control:not(.tn-has-button-selected) {
+        padding: 6px 12px !important;
+        line-height: 1 !important;
+    }
+    // typography overrides
+
+    h1 {
+        @extend %h2;
+    }
+
+    h2 {
+        @extend %h3;
+    }
+
+    h3 {
+        @extend %h4;
+    }
+
+    .tn-events-listing-page h1 {
+        @extend %h1;
+    }
+
+    form label {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        .tn-required-field {
+            font-family: var(--body-font);
+            font-size: 0.875rem;
+            font-style: normal;
+            font-weight: $normal;
+            color: var(--black);
+        }
+    }
+
+    fieldset:has(.tn-account-login-form__legend) {
+        margin-bottom: $gap;
+    }
+
+    @import 'styles/_payment.scss';
+}
+
+
+// Styles needed outside of 'html body' prefix
+#TNEW {
+    margin-bottom: $gap;
+    max-width: 100%;
+}
+
+fieldset {
+    margin-top: 0;
+}
+
+ul {
+    margin-left: 0;
+}
+
+@import 'styles/_navigation.scss';
+
+//Buttons on the modals outside .tnew-container
+.modal-btn-confirm.btn,
+.modal .tn-syos-seat-info__price-type--button {
+    background-color: var(--theme);
+    border: 1px solid var(--theme);
+    color: var(--white);
+    border-radius: 0;
+    font-family: var(--heading-font);
+    font-size: var(--label-text);
+    font-weight: $bold;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+    }
+}
+
+.modal-btn-cancel.btn {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    color: var(--black);
+    border-radius: 0;
+    font-family: var(--heading-font);
+    font-size: var(--label-text);
+    font-weight: $bold;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: var(--black);
+        border-color: var(--black);
+        color: var(--white);
+    }
+}

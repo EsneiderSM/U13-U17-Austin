@@ -1,0 +1,111 @@
+/// <reference path="../../entries/main">
+
+/// minimum size for form element font-size to prevent iOS resizing is 16px
+%form-element {
+    font-size: $form-field-font-size;
+    line-height: $form-field-line-height;
+    padding: $button-form-padding;
+    padding: var(--button-form-padding);
+    width: 100%;
+    max-width: $max-input-width;
+    border: $button-form-border solid $default-text;
+    border-radius: $border-radius;
+    font-family: $body-font;
+    color: $default-text;
+    background: $white;
+    outline-offset: 0;
+    outline: none;
+    // if using a fixed nav, the scroll-margin-top value should match the nav height
+    // this will make sure that jumping to a field via anchor link avoids a fixed nav at the top
+    scroll-margin-top: $gap;
+
+    &:focus,
+    &:hover {
+        border-color: $default-secondary;
+    }
+
+    &:focus {
+        @include generate-focus-box-shadow($default-text, $blue, 'small');
+        outline: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: $gray-light;
+
+        &:hover {
+            border-color: $black;
+        }
+    }
+
+    &[aria-invalid="true"] {
+        border-color: $ui-invalid;
+    }
+
+    @include dark-theme() {
+        border-color: $white;
+
+        &:focus {
+            @include generate-focus-box-shadow($black, $white);
+        }
+    }
+}
+
+::placeholder {
+    color: $gray-medium;
+    font-style: italic;
+}
+
+input:not([type="checkbox"]):not([type="radio"]) {
+    @extend %form-element;
+}
+
+select, textarea {
+    @extend %form-element;
+}
+
+submit {
+    @extend %btn-primary;
+}
+
+label {
+    @extend %accent;
+}
+
+.label-hint {
+    @extend %small;
+    font-style: italic;
+}
+
+.required {
+    color: $ui-invalid;
+    position: relative;
+    vertical-align: baseline;
+    top: 0.025em;
+    left: 0.125em;
+
+    @include dark-theme() {
+        color: $white;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+label {
+    display: block;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    & + label {
+        display: inline-block;
+    }
+}

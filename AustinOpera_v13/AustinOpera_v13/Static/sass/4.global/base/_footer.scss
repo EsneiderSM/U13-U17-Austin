@@ -1,0 +1,21 @@
+﻿/// <reference path="../../entries/main">
+
+// ------------- FOOTER - STRUCTURE ------------- //
+footer {
+    border-top: 1px solid transparent;
+    padding: 1rem;
+
+    .footer-inner {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+// ------------- FOOTER - SKIN ------------- //
+footer {
+    border-color: $gray-light;
+    background: $white;
+}

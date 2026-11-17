@@ -1,0 +1,117 @@
+﻿/// <reference path="../../entries/main">
+
+.stack-xs {
+    @include stack($static-spacing: $sliver);
+
+    &.stack-border {
+        @include stack($static-spacing: $sliver, $border: true );
+    }
+}
+
+.stack-sm {
+    @include stack($static-spacing: $space);
+
+    &.stack-border {
+        @include stack($static-spacing: $space, $border: true );
+    }
+}
+
+.stack-md {
+    @include stack($static-spacing: $gap-sm);
+
+    &.stack-border {
+        @include stack($static-spacing: $gap-sm, $border: true );
+    }
+}
+
+.stack {
+    @include stack($static-spacing: $paragraph-spacing);
+
+    &.stack-border {
+        @include stack($static-spacing: $paragraph-spacing, $border: true );
+    }
+}
+
+.stack-lg {
+    @include stack($spacing-map: $gutter-map-v);
+
+    &.stack-border {
+        @include stack($spacing-map: $gutter-map-v, $border: true );
+    }
+}
+
+.stack-xl {
+    @include stack($spacing-map: $block-margin-map);
+
+    &.stack-border {
+        @include stack($spacing-map: $block-margin-map, $border: true );
+    }
+}
+
+.space-top {
+    margin-top: $paragraph-spacing;
+
+    &.border-top {
+        padding-top: $paragraph-spacing;
+    }
+
+    &-xs {
+        margin-top: $sliver;
+
+        &.border-top {
+            padding-top: $sliver;
+        }
+    }
+
+    &-sm {
+        margin-top: $space;
+
+        &.border-top {
+            padding-top: $space;
+        }
+    }
+
+
+    &-md {
+        margin-top: $gap-sm;
+
+        &.border-top {
+            padding-top: $gap-sm;
+        }
+    }
+
+    &-lg {
+        @include responsive-context($gutter-map-v) {
+            margin-top: $responsive-variable;
+
+            &.border-top {
+                padding-top: $responsive-variable;
+            }
+        }
+    }
+
+    &-xl {
+        @include responsive-context($block-margin-map) {
+            margin-top: $responsive-variable;
+
+            &.border-top {
+                padding-top: $responsive-variable;
+            }
+        }
+    }
+}
+
+.space-bottom {
+    margin-bottom: $paragraph-spacing;
+}
+
+.stack-border > * + *,
+.border-top {
+    border-top: 1px solid $gray-light;
+}
+
+.no-margins {
+    & > * + * {
+        margin-top: 0;
+    }
+}

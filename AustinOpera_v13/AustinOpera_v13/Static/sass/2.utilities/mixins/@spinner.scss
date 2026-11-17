@@ -1,0 +1,7 @@
+﻿@mixin spinner($color, $dur, $width, $height: $width) {
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 2px 1px 0 $color;
+    animation: spin #{$dur} linear infinite;
+}

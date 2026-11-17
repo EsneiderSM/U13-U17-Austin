@@ -1,0 +1,175 @@
+﻿/// <reference path="../tnew">
+
+.tn-cart-item-details {
+    &__list {
+        background-color: transparent;
+        padding: 0;
+
+        &-item {
+            padding-block: $gap-md;
+            border-top: solid 1px var(--black);
+            border-bottom: solid 1px var(--black);
+            font-weight: 700;
+            color: var(--black);
+
+            & + * {
+                border-top: 0;
+            }
+        }
+    }
+}
+
+.tn-cart-item-detail__list {
+    border-top: 0;
+}
+
+.tn-cart-item-summary {
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $gap-md;
+
+    &__property {
+        &--name {
+            @extend %h4;
+            font-weight: 700;
+            font-family: var(--heading-font);
+        }
+
+        &--date-time {
+            font-weight: 600;
+        }
+
+        &--price-total {
+            font-family: var(--heading-font);
+            @extend %h6;
+        }
+    }
+}
+
+
+.tn-cart__btn-remove {
+    border: none;
+    top: $gap-sm;
+}
+
+.tn-timer {
+    &-description {
+        color: var(--black);
+        font-family: var(--heading-font);
+        @extend %h6;
+    }
+
+    .tn-count-down-timer {
+        color: var(--theme);
+        font-family: var(--heading-font);
+        @extend %h6;
+    }
+}
+
+.tn-cart-totals {
+    &__line-item {
+        width: 100%;
+        flex-flow: row wrap;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    &__label {
+        width: auto;
+        font-weight: 400;
+        font-size: var(--font-size-h6);
+
+        &--total {
+            font-size: var(--font-size-h4);
+        }
+    }
+
+    &__value {
+        width: auto;
+        font-family: 'Bebas Neue';
+        color: var(--black);
+        font-size: var(--font-size-h6);
+        min-width: 150px;
+
+        &--total {
+            font-size: var(--font-size-h4);
+        }
+    }
+}
+
+.tn-cart-buttons {
+    justify-content: end;
+    gap: $gap-md;
+    align-items: center;
+
+    &__primary-action {
+        @include media-min(medium) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.tn-cart-buttons__primary-action, .tn-cart-buttons__secondary-action {
+
+    @include media(medium) {
+        width: 100%;
+    }
+}
+
+.tn-header-component {
+    margin-top: $gap-sm;
+}
+
+form {
+    .form-group,
+    .tn-ticket-selector__pricetype-select-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        gap: .5rem;
+
+        .input-group, input:not([type="radio"]):not([type="checkbox"]), select {
+            width: 100%;
+        }
+
+        .checkbox,
+        .radio {
+            margin: 0;
+        }
+
+        .checkbox + .checkbox,
+        .radio + .radio {
+            margin-top: 0;
+        }
+
+        select {
+            min-height: 37px;
+        }
+    }
+}
+
+.tn-amount {
+    font-size: var(--regular-text);
+    border-radius: 0;
+    border-color: var(--black);
+}
+
+.tn-payment-apply-gift-certificate {
+    max-width: 100%;
+}
+
+.adyen-checkout__label__text {
+    line-height: 1;
+}
+
+.tn-payment-submit-component .btn-primary {
+    width: 100%;
+}
+
+@include media(small) {
+    .tn-payment-apply-gift-certificate .btn-default,
+    .tn-donation-ask-component__submit-button {
+        width: 100%;
+    }
+}

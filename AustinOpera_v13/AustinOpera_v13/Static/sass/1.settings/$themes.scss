@@ -1,0 +1,66 @@
+﻿/// <reference path="../entries/main">
+
+// Default light and dark themes defined separately so they're easy to use and manipulate
+$default-theme: (
+        'background': $white,
+        'foreground': $default-text,
+        'foreground-light': $default-secondary,
+        'links': ($default-text, $default-secondary),
+        'button-primary': $default-button-config,
+        'button-secondary': $default-button-secondary-config
+    );
+
+$dark-theme: (
+        'background': $black,
+        'foreground': $white,
+        'foreground-light': $gray-light,
+        'links': ($white, $gray-light),
+        'button-primary': (
+            off: ($white, $black),
+            on: ($gray-light, $black),
+            focus: ($gray-dark, $white, outline),
+            disabled: ($gray-medium, $white)
+        ),
+        'button-secondary': (
+            off: ($black, $white, outline),
+            on: ($white, $black),
+            focus: ($gray-dark, $white, outline),
+            disabled: ($black, $gray-medium, outline)
+        )
+    );
+
+// Put the themes in groups to handle styles in common, so 'light' uses 'default' as a base, etc.
+$default-themes: ('light', 'danger', 'success');
+$dark-themes: ('blue');
+
+// This is the main theme listing, and anything here will override values from the base theme listed above
+$themes: (
+    'default': $default-theme,
+    'dark' : $dark-theme,
+    'light': (
+        'background': $gray-lighter
+    ),
+    'blue' : (
+        'background': $blue-dark,
+        'button-primary': map-merge(
+            $default-button-config,
+            (
+                off: ($blue, $white)
+            )
+        ),
+        'button-secondary': map-merge(
+            $default-button-secondary-config,
+            (
+                off: ($white, $blue, outline)
+            )
+        )
+    ),
+    'danger' : (
+        'background': $red-light,
+        'foreground': $red
+    ),
+    'success': (
+        'background': $lime, 
+        'foreground': $green
+    )
+);

@@ -1,0 +1,17 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+@using Umbraco.Cms.Core.Models.Blocks;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ColumnUmbracoForm)Model.Content;
+    var settings = (ContentModels.ColumnUmbracoFormSettings)Model.Settings;
+}
+
+<div class="grid-item grid-item--form @(settings.BoxedColumn ? "grid-item--boxed" : "")">
+    @if (content.Form != null)
+    {
+        @* Umbraco 17 has no macros. Was (U13): the "renderUmbracoForm" macro with { FormGuid = content.Form, FormTheme = "igloo", ExcludeScripts = "0" }).
+           ExcludeScripts = "0" meant the form scripts were rendered with the form, and Master.cshtml only renders
+           the dependencies (RenderUmbracoFormDependencies), so includeScripts stays true (same as widgets/UmbracoForm.cshtml). *@
+        @await Component.InvokeAsync("RenderForm", new { formId = content.Form.Value, theme = "igloo", includeScripts = true })
+    }
+</div>

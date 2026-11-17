@@ -1,0 +1,41 @@
+﻿/// <reference path="../../entries/main">
+
+.btn,
+.btn-primary {
+    @extend %btn-primary;
+}
+
+.btn-secondary {
+    @extend %btn-secondary;
+}
+
+.btn-link {
+    @extend %btn-link;
+}
+
+.btn-remove {
+    @extend %btn-remove;
+}
+
+.un-button {
+    @extend %un-button;
+}
+
+.btn-full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.btn,
+.btn-primary,
+.btn-secondary {
+    & > *:first-child:not(.visually-hidden) ~ *:not(.visually-hidden) {
+        margin-left: $space;
+    }
+}
+
+.btn-dashed {
+    @extend %btn-secondary;
+    border: 2px dashed $default-text;
+    font-weight: $font-weight-bold;
+}

@@ -1,0 +1,41 @@
+﻿/// <reference path="../../entries/main">
+
+.inline-input-form {
+    display: flex;
+    max-width: 100%;
+    width: $max-input-width;
+
+    @include media(mobile) {
+        display: block;
+    }
+
+    & > button {
+        flex: 0 1 auto;
+
+        @include media-min(mobile) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        @include media(mobile) {
+            width: 100%;
+        }
+    }
+
+    & > input:not([type="radio"]):not([type="checkbox"]) {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: auto;
+
+        @include media-min(mobile) {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            border-right: 0;
+        }
+
+        @include media(mobile) {
+            width: 100%;
+            margin-bottom: $space;
+        }
+    }
+}

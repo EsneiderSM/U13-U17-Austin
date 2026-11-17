@@ -1,0 +1,49 @@
+﻿/// <reference path="../entries/main">
+
+%visually-hidden {
+    @include visually-hidden;
+}
+
+%hide {
+    @include hide;
+}
+
+%text-top-margin {
+    margin-top: 1em;
+}
+
+%medium-top-margin {
+    margin-top: 0.5em;
+}
+
+%small-top-margin {
+    margin-top: 0.325em;
+}
+
+%svg-bg-left {
+    background-repeat: no-repeat;
+    background-size: $svg-icon-md $svg-icon-md;
+    background-position: left top 0.25em;
+    padding-left: $svg-icon-md * 1.5;
+    padding-top: $sliver;
+}
+
+%round {
+    // Rounded border, for circles or pill-shapes. Not elliptical.
+    border-radius: $border-radius-round;
+}
+
+%checkmark {
+    // Used for the checkbox check, and the check indicator on button/pill appearance radio/checkboxes
+    content: '';
+    position: absolute;
+    display: inline-block;
+    border: $radiocheck-weight solid $default-text;
+    border-width: 0 0 $radiocheck-weight $radiocheck-weight;
+    transform: rotate(-45deg);
+    display: block;
+    top: 0.24em;
+    left: 0.24em;
+    width: $radiocheck-size / 1.5;
+    height: $radiocheck-size / 3;
+}

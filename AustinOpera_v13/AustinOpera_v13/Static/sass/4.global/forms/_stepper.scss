@@ -1,0 +1,93 @@
+﻿/// <reference path="../../entries/main">
+
+// REQUIRES %btn placeholder to be defined
+
+$_stepper-spacing: $space;
+$_stepper-button-ui-size: 0.75em;
+$_stepper-button-ui-thickness: $ui-icon-thickness;
+$_stepper-button-focus-color: $default-text;
+$_stepper-button-ui-color: $default-secondary;
+
+.stepper {
+    display: flex;
+    align-items: center;
+
+    @at-root {
+        label:not(.visually-hidden) + & {
+            margin-top: $space;
+        }
+    }
+
+    & &-input[type] {
+        width: $square-button-size;
+        width: var(--square-button-size);
+        flex: 0 1 auto;
+        text-align: center;
+        align-self: stretch;
+        padding: 0;
+        margin-left: $space;
+        margin-right: $space;
+    }
+
+    &-btn {
+        @extend %btn-primary;
+        width: $square-button-size;
+        width: var(--square-button-size);
+        height: $square-button-size;
+        height: var(--square-button-size);
+        min-width: 0;
+        flex: 0 0 auto;
+        padding: 0;
+
+        &-up,
+        &-down {
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                display: block;
+                width: $_stepper-button-ui-size;
+                height: $_stepper-button-ui-thickness;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                background: $white;
+            }
+
+            &:hover,
+            &:focus,
+            &:active {
+                &:not([disabled]) {
+                    background: $_stepper-button-focus-color;
+
+                    &::before,
+                    &::after {
+                        background: $white;
+                    }
+                }
+            }
+
+            &[disabled] {
+                &::before,
+                &::after {
+                    background-color: $gray;
+                }
+            }
+        }
+
+        &-up {
+            &::after {
+                transform-origin: center center;
+                transform: translate(-50%, -50%) rotate(90deg);
+            }
+        }
+
+        &-down {
+            &::after {
+                content: none;
+            }
+        }
+    }
+}

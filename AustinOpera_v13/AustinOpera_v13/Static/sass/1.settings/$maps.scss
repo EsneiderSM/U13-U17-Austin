@@ -1,0 +1,55 @@
+﻿/// <reference path="../entries/main">
+// ------------- BREAKPOINTS MAP ------------- //
+
+$breakpoints: (
+    x-large: $x-large-media-query-size,
+    large : $large-media-query-size,
+    medium: $medium-media-query-size,
+    tablet: $tablet-media-query-size,
+    small : $small-media-query-size,
+    mobile : $mobile-media-query-size
+);
+
+$gutter-map-h: (  // for use between in-component content in columns
+                // DON'T REMOVE ANY BREAKPOINTS.
+                // Should be smaller than $standard-padding-map at all breakpoints to prevent overflow of flex grid content w/ "pocket" margins
+        null        : $max-gutter-width,
+        large       : 1.5rem,
+        medium      : 1.5rem,
+        small       : 1.25rem
+    );
+
+$gutter-map-small: (  // for use in form items, or any other content that doesn't need a massive horizontal gap
+                // DON'T REMOVE ANY BREAKPOINTS.
+        null        : 1.5rem,
+        large       : 1.25rem,
+        medium      : 1rem,
+        small       : 1rem
+    );
+
+$calendar-padding-map: $gutter-map-h;
+
+$gutter-map-v: ( // vertical rhythm in in-component layouts
+                // DON'T REMOVE ANY BREAKPOINTS.
+        null        : $max-gutter-height,
+        large       : 1.5rem,
+        medium      : 1.5rem,
+        small       : 1.5rem
+    );
+
+// Organizing map for component spacing in grid layouts
+$grid-spacing-map: (
+        null        : 4rem,
+        large       : 3rem,
+        tablet      : 2rem,
+        small       : 1.5rem
+    );
+
+$standard-padding-map: ( // for global use on page margins. Extend %standard-padding-h or %standard-padding-v
+        null        : $max-page-margin,
+        large       : 4rem,
+        medium      : 2.5rem,
+        small       : 1.5rem
+    );
+
+$block-margin-map: $grid-spacing-map; // for use between blocks. Extend %standard-margin-v

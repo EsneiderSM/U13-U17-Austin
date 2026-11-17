@@ -1,0 +1,25 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin stack($spacing-map: '', $static-spacing: '', $border: false) {
+    @if $spacing-map != '' {
+        @include responsive-context($spacing-map) {
+            & > * + * {
+                margin-top: $responsive-variable;
+
+                @if $border != false {
+                    padding-top: $responsive-variable;
+                }
+            }
+        }
+    }
+
+    @elseif $static-spacing != '' {
+        & > * + * {
+            margin-top: $static-spacing;
+
+            @if $border != false {
+                padding-top: $static-spacing;
+            }
+        }
+    }
+}

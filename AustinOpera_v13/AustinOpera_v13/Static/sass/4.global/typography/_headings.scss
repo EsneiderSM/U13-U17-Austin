@@ -1,0 +1,13 @@
+﻿/// <reference path="../../entries/main">
+
+/*  Apply silent classes to heading elements and equivalent classes at each level
+    This equates to:
+    h3, .h3-style { @extend %h3 } but without having to apply it to each level manually.
+*/
+@for $n from 6 through 6 {
+    /*h#{$n},
+    .h#{$n}-style {
+        @extend %h#{$n}; 
+    }*/
+}
+

@@ -1,0 +1,27 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin responsive-property($property, $map) {
+    // preventing unnecessary lines in the compiled css
+    $_responsive-value-last: 0 !default;
+    $_responsive-value-next: 0 !default;
+
+    @each $breakpoint, $amount in $map {
+        $_responsive-value-next: $amount !global;
+
+        @if $breakpoint == null {
+            #{$property}: $amount;
+        }
+
+        @else if $_responsive-value-next != $_responsive-value-last {
+            @if map-has-key($breakpoints, $breakpoint) {
+                $breakpoint: map-get($breakpoints, $breakpoint);
+            }
+
+            @media screen and (max-width: $breakpoint) {
+                #{$property}: $amount;
+            }
+        }
+
+        $_responsive-value-last: $amount !global;
+    }
+}

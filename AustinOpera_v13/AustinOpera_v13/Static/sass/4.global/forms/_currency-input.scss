@@ -1,0 +1,23 @@
+﻿/// <reference path="../../entries/main">
+
+.currency-input {
+    display: flex;
+    align-items: center;
+
+    &::before {
+        @extend %accent;
+        content: '$';
+        margin-right: -$gap-md;
+        width: $gap-md;
+        padding-left: $space * 1.5;
+        line-height: $body-line-height;
+        position: relative;
+        pointer-events: none;
+        color: $gray-dark;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]) {
+        padding-left: $gap-md;
+        align-self: stretch;
+    }
+}

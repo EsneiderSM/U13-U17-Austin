@@ -1,0 +1,9 @@
+﻿/// <reference path="../../entries/main">
+
+@mixin link-helper($color: $default-text, $contrast: $default-secondary) {
+    color: $color;
+
+    &:hover, &:active, &:focus {
+        color: $contrast;
+    }
+}

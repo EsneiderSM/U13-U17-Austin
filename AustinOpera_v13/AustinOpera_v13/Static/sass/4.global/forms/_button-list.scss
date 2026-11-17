@@ -1,0 +1,66 @@
+﻿/// <reference path="../../entries/main">
+
+.button-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -$space;
+    margin-bottom: -$space;
+
+    &-item {
+        margin-right: $space;
+        margin-bottom: $space;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        & + label {
+            @extend %btn-secondary;
+            border-radius: $border-radius-round;
+
+            &::before {
+                content: none;
+            }
+
+            &::after {
+                @extend %checkmark;
+                opacity: 0;
+                transition: $transition;
+                border-color: $white;
+                border-radius: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(-45deg);
+                left: $radiocheck-size / 2;
+                background-color: transparent;
+
+                @include dark-theme() {
+                    border-color: $black;
+                }
+            }
+        }
+
+        &:focus + label {
+            @include generate-focus-box-shadow($blue, $_weight: 'small');
+
+            @include dark-theme() {
+                @include generate-focus-box-shadow($black, $white);
+            }
+        }
+
+        &:checked + label {
+            background-color: $default-text;
+            color: $white;
+            border-color: $default-text;
+            padding-left: $button-form-padding-h + $radiocheck-size;
+
+            &::after {
+                opacity: 1;
+            }
+
+            @include dark-theme() {
+                background-color: $white;
+                color: $black;
+                border-color: $white;
+            }
+        }
+    }
+}

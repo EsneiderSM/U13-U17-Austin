@@ -1,0 +1,9 @@
+﻿//We're using the bare minimum of our usual sass set up. Mostly we're relying on the igloo theme. Overrides are in the igloo-overrides folder.
+@import
+'../1.settings/__index.scss',
+'../2.utilities/__index.scss',
+'../3.patterns/__index.scss',
+'../4.global/__index.scss',
+'../6.blocks/__index.scss',
+'../9.igloo-overrides/__index.scss'
+;

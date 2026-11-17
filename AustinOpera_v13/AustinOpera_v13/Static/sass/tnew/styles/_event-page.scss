@@ -1,0 +1,417 @@
+﻿/// <reference path="../tnew">
+$day-height: 12.875rem;
+
+.tn-event-listing-mode-tab-nav__list-item {
+    font-family: var(--heading-font);
+    border-width: 1px;
+    color: var(--black);
+    background-color: var(--white);
+    padding: $gap-sm;
+    line-height: 1rem;
+    border-color: var(--black);
+
+    &.active {
+        background-color: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+.tn-event-listing-mode-tab-nav__list {
+    border-bottom: solid 1px var(--black);
+
+    &-item--secondary {
+        padding: $gap-xxs $gap-md;
+        border-bottom: solid 1px;
+    }
+}
+
+.tn-events-calendar {
+    &__day {
+        min-height: $day-height;
+
+        &-number {
+            text-align: left;
+            color: var(--black);
+        }
+
+        &-cell {
+            border-color: var(--black);
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        &-event-list-item {
+            .tn-events-calendar__event {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                gap: $gap-sm;
+            }
+
+            .tn-events-calendar__event-time {
+                position: initial;
+            }
+        }
+    }
+
+    &__table th {
+        text-align: center;
+        background-color: transparent;
+        color: var(--black);
+        font-family: var(--heading-font);
+    }
+
+    &__event {
+        border: none;
+
+        &-name {
+            font-family: var(--body-font);
+            font-weight: 400;
+            font-size: var(--font-size) !important;
+        }
+
+        &-time {
+            font-family: var(--body-font);
+            font-size: var(--font-size);
+        }
+    }
+}
+
+.tn-events-calendar__day-cell.tn-events-calendar__day-cell--previous-month, .tn-events-calendar-view--month .tn-events-calendar__day-cell--next-month {
+    background-color: var(--black);
+    color: var(--white);
+
+    .tn-events-calendar__day-number {
+        color: var(--white);
+    }
+
+    .tn-events-calendar__event {
+        background-color: transparent;
+        color: var(--white);
+    }
+}
+
+.tn-events-calendar {
+    &__event-time {
+        font-weight: 700;
+        opacity: 1;
+    }
+
+    &__list-day-heading {
+        color: var(--black);
+        background-color: var(--white);
+        padding-block: $space;
+        border-top: solid 1px var(--black);
+        border-bottom: solid 1px var(--black);
+    }
+
+    &__event {
+        background: transparent;
+        color: var(--black);
+
+        &:focus, &:hover, &:active {
+            background-color: var(--black);
+        }
+
+        &-name {
+            position: relative;
+        }
+    }
+
+    &__table {
+        .tn-events-calendar__event {
+            padding: $gap-xxs $gap-xxs;
+        }
+
+        .tn-events-calendar__event-time {
+            position: relative;
+            left: 0;
+        }
+    }
+}
+
+.tn-btn-datepicker__btn:hover {
+    .tn-btn-datepicker__icon-calendar {
+        color: var(--white);
+    }
+}
+
+.tn-btn-datepicker {
+    &__icon-container {
+        color: var(--black);
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    &__icon-calendar {
+        color: var(--black);
+        margin-left: 1rem;
+        width: 19px;
+        height: 19px;
+    }
+
+    &__btn {
+        border-color: var(--black);
+        border-width: 1.5px;
+        font-family: var(--heading-font);
+        font-weight: 400;
+        text-align: left;
+        flex-grow: 0;
+        border-radius: 0;
+        font-size: var(--font-size-h6);
+        line-height: var(--font-size-h6);
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+
+        @include media(medium) {
+            width: 100%;
+        }
+
+        &-period-prev-next--btn-next, &-period-prev-next--btn-prev {
+            border-radius: 0;
+            background-color: var(--theme);
+            color: var(--white);
+            font-size: var(--font-size);
+            line-height: var(--font-size);
+            padding: 0 $gap-sm;
+
+            &:hover, &:active, &:focus {
+                background-color: var(--black);
+            }
+        }
+    }
+}
+// list view
+.tn-event-listing-mode-tab-nav__list--secondary {
+    border-bottom: 0;
+}
+
+.tn-event-listing-view__results-heading {
+    color: var(--black);
+}
+
+.tn-prod-list-item {
+    &__property {
+        &--heading {
+            border-bottom: solid 1px var(--black);
+            padding-bottom: $gap-md;
+
+            @include media(medium) {
+                padding-block: $gap-md;
+                margin-inline: $gap-xs;
+            }
+
+            a {
+                color: var(--black);
+            }
+        }
+
+        &--img-container {
+            grid-row: 1 / span 3;
+            margin: 0;
+        }
+
+        &--description {
+            @include media(medium) {
+                margin-inline: $gap-xs;
+            }
+        }
+
+        &--perf-list {
+            margin-top: 0;
+        }
+
+        &--description ~ .tn-prod-list-item__property--perf-list {
+            margin-top: $gap-md;
+        }
+    }
+
+    &__perf {
+        &-time {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        &-date {
+            width: 150px;
+            font-weight: 700;
+            color: var(--black);
+
+            @include media(medium) {
+                width: auto;
+                flex-grow: 1;
+                text-align: left;
+            }
+        }
+
+        &-anchor {
+            padding-block: $gap-xs * 2;
+            border: 0;
+            padding-right: 45px;
+
+            @include media(medium) {
+                padding-block: $gap-xs;
+            }
+
+            &:not(:hover):not(:focus) {
+                background-color: transparent;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: var(--border-dark);
+
+                .glyphicon,
+                .tn-prod-list-item__button {
+                    // from tnew styles
+                    color: #fff;
+                    background-color: var(--black);
+                    border-color: var(--black);
+                }
+            }
+        }
+
+        &-list {
+            &-item {
+                border-top: 1px solid var(--border-dark);
+                margin-bottom: 0;
+
+                &:first-child {
+                    border: none;
+                    /*margin-top: -$gap-xs;*/
+                }
+            }
+        }
+
+        &-action {
+            font-family: var(--heading-font);
+            color: var(--black);
+        }
+
+        &-property {
+            flex-grow: 1;
+            width: auto;
+
+            &--datetime {
+                display: flex;
+                flex-flow: row;
+                justify-content: flex-start;
+                gap: $gap-sm;
+                color: var(--black);
+                font-weight: 700;
+                background-color: transparent;
+            }
+
+            &--action {
+                @include media(medium) {
+                    width: 100%;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .glyphicon,
+    &__button {
+        font-size: var(--font-size-small);
+        line-height: var(--font-size-small);
+        top: $gap-xs;
+        bottom: $gap-xs;
+        right: 5px;
+
+        @include media(medium) {
+            bottom: $gap-xs;
+            top: auto;
+            height: 37px;
+            right: $gap-xs;
+            padding-inline: 1.25rem;
+        }
+    }
+
+    &__button {
+        padding: 0;
+    }
+}
+
+.tn-performance-title {
+    color: var(--black);
+}
+
+.tn-events-list-view {
+    &__datepicker {
+        &-container {
+            width: auto;
+            flex-grow: 0;
+        }
+
+        &-divider {
+            align-items: center;
+
+            &-label {
+                color: var(--black);
+                text-transform: uppercase;
+                font-family: var(--heading-font);
+                font-style: normal;
+                font-size: var(--font-size-h6);
+                line-height: var(--font-size-h6);
+            }
+        }
+    }
+}
+//event seat selection//
+//overriden h2 size
+.tn-syos-seat-info__price-type-heading {
+    font-size: var(--font-size-h6);
+    line-height: var(--font-size-h6);
+}
+//overriden h3 size
+.tn-syos-screen-container__button-list-heading {
+    font-size: var(--font-size-h5);
+    line-height: var(--font-size-h5);
+}
+//overriden h4 size
+.tn-syos-screen-button__section-heading {
+    font-size: var(--font-size-h6);
+    line-height: var(--font-size-h6);
+}
+
+// /overview/title page
+
+.tn-production-season-detail-page__performance-list .tn-prod-list-item__property--perf-list {
+    margin-top: -$gap-xs;
+}
+
+.tn-prod-season-header__title {
+    font-family: var(--body-font);
+    font-size: var(--medium-large-text);
+    margin: 0;
+}
+
+.tn-syos-mobile-cart-controls {
+    padding: 0;
+
+    &__btn-view-cart {
+        padding: 0;
+
+        &-label {
+            padding: 0;
+            font-family: var(--body-font);
+            font-weight: $normal;
+        }
+    }
+
+    &__summary {
+        height: 60px;
+    }
+}
+
+
+.tn-ticket-selector {
+    .btn-primary {
+        width: 100%;
+    } 
+}

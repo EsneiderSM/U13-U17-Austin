@@ -1,0 +1,36 @@
+﻿/// <reference path="../../entries/main">
+
+body {
+    @each $_font-size in $_all-font-size-maps {
+        $_font-sizes: map-get($_font-size, default);
+        $_font-name: map-get($_font-size, name);
+        --#{$_font-name}: #{nth($_font-sizes, 1)};
+        --#{$_font-name}-height: #{nth($_font-sizes, 2)};
+
+        @if(length($_font-sizes) > 2) {
+            --#{$_font-name}-spacing: #{nth($_font-sizes, 3)};
+        }
+    }
+
+    @each $_font-size in $_all-font-size-maps {
+        @each $_typography-breakpoint in $typography-breakpoints {
+            @if map-has-key($breakpoints, $_typography-breakpoint) {
+                @if map-has-key($_font-size, $_typography-breakpoint) {
+                    @include media($_typography-breakpoint) {
+                        $_font-sizes: map-get($_font-size, $_typography-breakpoint);
+                        $_font-name: map-get($_font-size, name);
+                        --#{$_font-name}: #{nth($_font-sizes, 1)};
+
+                        @if(length($_font-sizes) > 1) {
+                            --#{$_font-name}-height: #{nth($_font-sizes, 2)};
+                        }
+
+                        @if(length($_font-sizes) > 2) {
+                            --#{$_font-name}-spacing: #{nth($_font-sizes, 3)};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

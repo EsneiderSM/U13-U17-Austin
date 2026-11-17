@@ -1,0 +1,256 @@
+﻿/// <reference path="../tnew">
+
+// Primary Button
+.btn,
+.btn-primary,
+.tn-detail-page-header .tn-detail-production-text-toggle-link,
+.tn-gift-certificate-component #apply-gc-submit,
+.tn-gift-certificate-component .tn-apply.tn-payment-gift-certificate-toggle,
+.tn-gift-certificate-component .tn-cancel.tn-payment-gift-certificate-toggle,
+.tn-listing-filter-component .tn-date-filter-reset-button,
+.tn-listing-legend-toggle-link,
+.tn-payment-plan-component .tn-apply.tn-payment-plan-toggle,
+.tn-payment-plan-component .tn-cancel.tn-payment-plan-toggle,
+.tn-payment-plan .tn-apply.tn-payment-plan-toggle,
+.tn-payment-plan .tn-cancel.tn-payment-plan-toggle,
+.tn-subnav-component .tn-promo-box button.tn-subnav-promo-button,
+.tnew_button_as_link, .tn-syos__btn-add-to-cart, .tn-syos__btn-add-to-cart--cart-control, .tn-syos-screen-button,
+%tnew-btn-primary {
+
+    @extend %h6;
+    border: 1px solid var(--theme);
+    cursor: pointer;
+    background-color: var(--theme);
+    color: #fff;
+    text-decoration: none;
+    padding: $gap-xxs $gap-md;
+    font-family: var(--heading-font);
+    border-radius: 0;
+    border: 1px solid var(--theme);
+
+    &[disabled] {
+        background-color: var(--theme);
+        border-color: transparent;
+        color: var(--background-light);
+        cursor: not-allowed;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:hover:active,
+    &:hover:focus,
+    &:active:focus {
+        color: #fff;
+        background-color: var(--black);
+        border-color: var(--black);
+
+
+        &[disabled],
+        &.disabled {
+            background-color: var(--theme);
+            border-color: transparent;
+            color: var(--background-light);
+            border-color: transparent;
+            cursor: not-allowed;
+        }
+    }
+
+    &.glyphicon {
+        font-family: Glyphicons Halflings;
+        padding: 0;
+    }
+}
+
+.btn-primary.active,
+.btn-primary:hover,
+.open > .btn-primary.dropdown-toggle {
+   
+}
+.btn-sm {
+    line-height: var(--font-size-h6);
+}
+// Secondary Button
+.tn-additional-events__continue-shopping-link,
+.tn-ticketing-mode-change__anchor,
+.tn-cart-buttons__secondary-action,
+.btn-default {
+    @extend %h6;
+    background-color: #fff;
+    color: var(--black);
+    border: 1px solid var(--black);
+    font-family: var(--heading-font);
+    padding: $gap-xxs $gap-md;
+    border-radius: 0;
+    display: inline-block;
+    text-align: center;
+
+    .tn-btn-datepicker__icon-container {
+        color: var(--black);
+    }
+
+    span .tn-toggle-btn__icon {
+        color: var(--black);
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:hover:active,
+    &:hover:focus,
+    &:active:focus {
+        color: var(--white);
+        background-color: var(--black);
+        border-color: var(--black);
+    }
+}
+.tn-additional-events__continue-shopping-link {
+    padding:$space;
+}
+.tn-syos-screen-button {
+    &__section-heading {
+        margin: 0;
+    }
+
+    &:not(.disabled) {
+        &:hover, &:focus, &:active, &:hover:active, &:hover:focus, &:active:focus {
+            color: #fff;
+
+            * {
+                color: #fff;
+            }
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+
+        &:hover, &:focus, &:active, &:hover:active, &:hover:focus, &:active:focus {
+            color: var(--background-light);
+        }
+    }
+}
+
+.tn-syos-mobile-cart-controls__btn-view-cart {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &:hover:active,
+    &:hover:focus,
+    &:active:focus,
+    &.disabled:hover,
+    &.disabled:focus,
+    &.disabled:active {
+        background-color: #fff;
+        color: var(--black);
+        border-color: var(--black);
+    }
+}
+
+.tn-syos-zoom-control__btn {
+    display: flex;
+    padding: 0;
+}
+
+.tn-flex-performance-group__btn-toggle-productions,
+.tn-flex-production__btn-toggle-performances {
+    &:hover {
+        .tn-toggle-btn__icon {
+            color: var(--white);
+        }
+    }
+}
+
+.tn-register-button,
+.tn-login-component .btn-primary {
+    width: 100%;
+}
+
+.tn-utility-nav {
+    &-inline-promo-code {
+        &-form {
+            &__label {
+                display: none;
+            }
+
+            &__input {
+                height: auto;
+                border-radius: 0;
+                border-color: var(--black);
+
+                @include media(medium) {
+                    flex-grow: 1;
+                }
+
+                &-container {
+                    @include media(medium) {
+                        width: 100%;
+                    }
+                }
+            }
+
+            &__btn-submit {
+                font-size: var(--regular-text);
+                line-height: 1;
+            }
+        }
+    }
+
+    &-account-login-link,
+    &-cart-link {
+        font-size: var(--regular-text);
+        line-height: 1;
+    }
+
+    &-account-login-link,
+    &-account-menu-btn {
+        background-color: var(--white);
+        border-color: var(--black);
+        color: var(--black);
+
+        &:hover, &:focus, &:active, &:hover:active, &:hover:focus, &:active:focus {
+            background-color: var(--white);
+            border-color: var(--black);
+            color: var(--black);
+        }
+    }
+
+    &-cart-link {
+        display: flex;
+        align-items: center;
+    }
+
+    @include media(medium) {
+        &-account-login-link {
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+        }
+
+        &-cart-link {
+            width: 100%;
+            justify-content: center;
+
+            &__quantity-badge {
+                position: relative;
+                right: 0;
+                top: 0;
+                margin-left: $space;
+            }
+        }
+
+        &-cart-controls-section {
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-xs;
+        }
+
+        &-account-menu-btn {
+            width: 100%;
+            justify-content: center;
+            margin: 0;
+        }
+    }
+}

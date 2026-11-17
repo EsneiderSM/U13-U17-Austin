@@ -1,0 +1,57 @@
+﻿/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+    @if (type-of($number) == 'number') and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+@function pxToRem($size) {
+    $remSizeUnitless: strip-unit($size) / 16;
+
+    @return $remSizeUnitless * 1rem;
+}
+
+@function pxToEm($size) {
+    $remSizeUnitless: strip-unit($size) / 16;
+
+    @return $remSizeUnitless * 1em;
+}
+
+@function calculateVW($remSize, $viewportWidth) {
+    $rems: strip-unit($remSize); //Returns the remsize without the 'rem'
+    $viewport: strip-unit($viewportWidth); //Returns the viewport width without 'px'
+    $remToPX: $rems * 16; //Convert Rems to pixels
+    $remToPXRatio: $remToPX / $viewport; //Divides the pixel font size by the viewport width to get the vw ratio
+    $remSizeToPx: $remToPXRatio * 100; //Multiplies the above number by 100 to get the vw unit.
+
+    @return $remSizeToPx * 1vw; //Returns the newly calculated unit.
+}
+
+@function ratioToPercent($width: 16, $height: 9) {
+    @return $height / $width * 100%;
+}
+
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+
+  @return $x1;
+}
+
+@function hypotenuse($side1, $side2) {
+    $side1unitless: strip-unit($side1);
+    $side2unitless: strip-unit($side2);
+    $units: $side1 / $side1unitless;
+    $hypSquared: ($side1unitless * $side1unitless) + ($side2unitless * $side2unitless);
+
+    @return sqrt($hypSquared) * $units;
+}

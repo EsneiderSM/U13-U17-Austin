@@ -1,0 +1,129 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+@using AustinOpera_v13.Helpers
+@using Umbraco.Cms.Core.Models.Blocks;
+@{
+    var content = (Hero)Model.Content;
+    var settings = (HeroSettings)Model.Settings;
+
+    var order = (int)ViewData["order"];
+
+    var textColorClass = settings.TextColor?.ToString() == "dark" ? "" : "light-color";
+    var overlayClass = settings.TextColor?.ToString() == "dark" ? "overlay--light" : "";
+
+    var animateClass = settings.Animate ? "animate" : "";
+    var containerWidthClass = "container";
+
+    switch (settings.ContainerWidth)
+    {
+        case "small":
+            containerWidthClass = "container container--small";
+            break;
+        case "standard":
+            containerWidthClass = "container";
+            break;
+        case "big":
+            containerWidthClass = "container container--big";
+            break;
+        case "full width":
+            containerWidthClass = "container-fluid";
+            break;
+    }
+
+    var textWidth = settings.TextWidth == null ? "100" : settings.TextWidth.Replace("%", "");
+}
+<section class="hero @(overlayClass) @(animateClass) hero--v-@(settings.VerticalTextAlignment)" @if (!string.IsNullOrEmpty(settings.AnchorID))
+{
+    <text>id="@settings.AnchorID"</text>
+}>
+    <div class="hero__wrapper">
+
+
+        <div class="hero__inner">
+            <div class="@(containerWidthClass)">
+                <div class="row row--@settings.TextAlignment">
+                    <div class="hero__inner @(textColorClass) col-@(textWidth) col-m-100">
+
+                        @if (content.PreHeading != "")
+                        {
+                                <div class="pre-head">@content.PreHeading</div>
+                        }
+                        @if (content.Heading != "")
+                        {
+                            if (order == 0)
+                            {
+                                        <h1>@content.Heading</h1>
+                            }
+                            else
+                            {
+                                        <h2>@content.Heading</h2>
+                            }
+                        }
+                        @if (content.Text.ToString() != "")
+                        {
+                                <div class="hero__text text-big">
+                                @content.Text
+                                </div>
+                        }
+
+                        @if (content.Buttons != null & content.Buttons.Any())
+                        {
+                                <div class="button-wrap">
+                                @foreach (var button in content.Buttons)
+                                {
+                                    @Html.Partial("~/Views/Partials/Widgets/RenderButton.cshtml", button)
+                                }
+                                </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @if (content.Background != null)
+        {
+
+            var backgroundMediaUrl = content.Background.Url();
+
+            var background = content.Background;
+
+            if (backgroundMediaUrl.Contains(".mp4"))
+            {
+                        <div class="hero__video">
+                            <video class="hero__video-player" playsinline muted loop autoplay>
+                                <source src="@(backgroundMediaUrl)" type="video/mp4">
+                            </video>
+                        </div>
+            }
+            else
+            {
+
+                        <div class="hero__background hide--m lazyload" 
+                        style="@AdageHtmlHelper.GetCssFocalPoint(background)"
+                            data-bgset="
+                @background.GetCropUrl(2560, 906, quality: 80) 2560w,
+                @background.GetCropUrl(1920, 680, quality: 80) 1920w,
+                @background.GetCropUrl(1600, 566, quality: 80) 1600w"
+                             data-sizes="auto">
+                        </div>
+
+                        <div class="hero__background show--m lazyload"
+                        style="@AdageHtmlHelper.GetCssFocalPoint(background)"
+                            data-bgset="
+                @background.GetCropUrl(1800, 637, quality: 80) 1800w,
+                @background.GetCropUrl(1440, 510, quality: 80) 1440w,
+                @background.GetCropUrl(1080, 382, quality: 80) 1080w,
+                @background.GetCropUrl(750, 265, quality: 80) 750w"
+                             data-sizes="auto">
+                        </div>
+            }
+
+        }
+
+
+        @if (!string.IsNullOrWhiteSpace(settings.OverlayStrength))
+        {
+                <div class="overlay @(overlayClass)" style="opacity:0.@(settings.OverlayStrength.Replace("%", ""))"></div>
+        }
+    </div>
+</section>
